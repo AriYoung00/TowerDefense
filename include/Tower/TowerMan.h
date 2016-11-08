@@ -5,24 +5,33 @@
 #ifndef TOWERDEFENSE_TOWERMAN_H
 #define TOWERDEFENSE_TOWERMAN_H
 
-#include "Tower/Tower.h"
+#include <vector>
+#include "Tower.h"
 #include "Events/ButtonClickEvent.h"
+#include "Location/TilePoint.h"
 
-using EventType::ButtonClickEvent;
+using std::vector;
+using Events::ButtonClickEvent;
+using Location::TilePoint;
 
-namespace Tower {
+namespace Towers {
     class TowerMan {
     public:
         TowerMan();
 
-        ~TowerMan();
+        void update();
+        void onButtonClick(ButtonClickEvent event);
 
-        void onUpdate();
+        Tower getTowerAt(TilePoint location);
 
-        void onButtonClick(ButtonClickEvent);
+    private:
+        vector<Tower> _towers;
 
-        void addTower(Tower);
+        void _createTower(TilePoint location);
+        void _destroyTower(Tower * tower);
+
     };
 }
+
 
 #endif //TOWERDEFENSE_TOWERMAN_H

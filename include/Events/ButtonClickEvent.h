@@ -5,7 +5,7 @@
 #ifndef TOWERDEFENSE_BUTTONCLICKEVENT_H
 #define TOWERDEFENSE_BUTTONCLICKEVENT_H
 
-namespace EventType {
+namespace Events {
     class ButtonClickEvent {
         ///Placeholder class. Ignore for now.
     };
