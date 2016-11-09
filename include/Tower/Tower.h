@@ -39,44 +39,59 @@ namespace Towers {
         void render();
 
         /**
-         * Causes a tower to take damage. \param Damage subtracted from \var _health. It is important to note that all of the
-         * logic is handled in \ref TowerMan, so it \a is possible for \var _health to have a negative value. Currently
+         * Causes a tower to take damage. Damage subtracted from _health. It is important to note that all of the
+         * logic is handled in TowerMan, so it \a is possible for _health to have a negative value. Currently
          * unused.
          * @param dmg The amound of damage for the Tower to take
          */
         void takeDamage(int dmg);
 
         /**
-         * Adds health to a tower. Param \p health is added to \var _health. If (\var _health + \param health) is greater
-         * than the max health for the defined \ref TowerType, then \var _health will be set to the max health for the
-         * defined \ref TowerType.
+         * Mark a tower for destruction and begin playing the destroy animation. Seperate from the deletion operator in 
+         * order to make sure the animation finishes playing before the object itself is destroyed. Sets \p _shouldDestroy
+         * to true.
+         */
+        void destroy();
+
+        /**
+         * Adds health to a tower. Param \p health is added to _health. If the tower's current health added to
+         *  the \p health is greater than the max health for the defined TowerType, then \p _health will be set to the
+         *  max health for the defined TowerType.
          * @param health The amound of health to be added to the Tower.
          */
         void addHealth(int health);
 
         /**
-         * Getter function for \var _health
+         * Getter function for \p _health
          * @return Current Tower health
          */
-        int getHealth();
+        int getHealth() const;
+
 
         /**
-         * Getter function for \var _type
-         * @return The \ref TowerType of the Tower object
+         * Whether or not a tower has been marked for destruction
+         * @return Whether or not a tower has been marked for destruction.
          */
-        TowerType getType();
+        bool shouldDestroy() const;
 
         /**
-         * Getter function for the \var _location field
+         * Getter function for \p _type
+         * @return The TowerType of the Tower object
+         */
+        TowerType getType() const;
+
+        /**
+         * Getter function for the \p _location field
          * @return The TilePoint location of the tower. Is a tile coordinate, not pixel.
          */
-        TilePoint getPos();
+        TilePoint getPos() const;
 
     private:
         /**
          * Tower health
          */
         int _health;
+        bool _shouldDestroy;
 
         /**
          * TowerType for current tower
