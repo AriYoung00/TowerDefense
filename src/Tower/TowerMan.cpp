@@ -39,4 +39,13 @@ namespace Towers {
                 return t;
         }
     }
+
+    void TowerMan::onButtonClick(ButtonClickEvent event) {
+        //TODO: Implement onButtonClick
+    }
+
+    void TowerMan::_createTower(TowerType type, TilePoint location) {
+        Tower t(type, location);
+        _towers.push_back(t);
+    }
 }
