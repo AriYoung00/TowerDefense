@@ -18,12 +18,29 @@ namespace Towers {
             _health = 400;
     }
 
+    Tower::~Tower() {
+        //TODO: Actually write this.
+    }
+
     void Tower::update() {
         //TODO: Actually write this. Relies on MonsterMan, TileUtil.
     }
 
+    void Tower::render() {
+        //TODO: Actually write this. Relies on TileUtil.
+    }
+
+    void Tower::destroy() {
+        //TODO: Actually write this.
+        _shouldDestroy = true;
+    }
+
     void Tower::takeDamage(int dmg) {
         _health -= dmg;
+    }
+
+    bool Tower::shouldDestroy() const {
+        return _shouldDestroy;
     }
 
     void Tower::addHealth(int health) {
@@ -33,15 +50,15 @@ namespace Towers {
             _health -= _health - 650;
     }
 
-    int Tower::getHealth() {
+    int Tower::getHealth() const {
         return _health;
     }
 
-    TowerType Tower::getType() {
+    TowerType Tower::getType() const {
         return _type;
     }
 
-    TilePoint Tower::getPos() {
+    TilePoint Tower::getPos() const {
         return _location;
     }
 }
