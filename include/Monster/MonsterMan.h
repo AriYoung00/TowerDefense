@@ -1,0 +1,8 @@
+//
+// Created by ariel on 11/8/16.
+//
+
+#ifndef TOWERDEFENSE_MONSTERMAN_H
+#define TOWERDEFENSE_MONSTERMAN_H
+
+#endif //TOWERDEFENSE_MONSTERMAN_H
