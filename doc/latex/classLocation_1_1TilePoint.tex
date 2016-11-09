@@ -1,0 +1,98 @@
+\hypertarget{classLocation_1_1TilePoint}{}\section{Location\+:\+:Tile\+Point Class Reference}
+\label{classLocation_1_1TilePoint}\index{Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}}
+
+
+{\ttfamily \#include $<$Tile\+Point.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLocation_1_1TilePoint_afbf1ea90894a760b14728218444b0c81}{Tile\+Point} (int x, int y, bool is\+Tile\+Coord=true)
+\item 
+int \hyperlink{classLocation_1_1TilePoint_a166b89350a7751f08e8bfbf208da1a52}{getX} ()
+\item 
+int \hyperlink{classLocation_1_1TilePoint_a8def1dfe482d208f94165a62ee6d8dce}{getY} ()
+\item 
+int $\ast$ \hyperlink{classLocation_1_1TilePoint_a9d3f1c17f303840aa8a9644959b858ba}{get\+Pos} ()
+\item 
+bool \hyperlink{classLocation_1_1TilePoint_a1e5bb7ae1c5ac93ee563da915dd0c01b}{operator==} (\hyperlink{classLocation_1_1TilePoint}{Tile\+Point} const \&rhs)
+\begin{DoxyCompactList}\small\item\em Returns \{posX, posY\}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}!Tile\+Point@{Tile\+Point}}
+\index{Tile\+Point@{Tile\+Point}!Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}}
+\subsubsection[{\texorpdfstring{Tile\+Point(int x, int y, bool is\+Tile\+Coord=true)}{TilePoint(int x, int y, bool isTileCoord=true)}}]{\setlength{\rightskip}{0pt plus 5cm}Location\+::\+Tile\+Point\+::\+Tile\+Point (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{bool}]{is\+Tile\+Coord = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocation_1_1TilePoint_afbf1ea90894a760b14728218444b0c81}{}\label{classLocation_1_1TilePoint_afbf1ea90894a760b14728218444b0c81}
+Constructor for \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} class 
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} \\
+\hline
+{\em y} & The y-\/coordinate for the \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} \\
+\hline
+{\em is\+Tile\+Coord} & Whether /p x and /p y refer to a tile coordinate or pixel coordinate. Tile coordinate by default. If pixel coordinate, is translated into tile coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}!get\+Pos@{get\+Pos}}
+\index{get\+Pos@{get\+Pos}!Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}}
+\subsubsection[{\texorpdfstring{get\+Pos()}{getPos()}}]{\setlength{\rightskip}{0pt plus 5cm}int $\ast$ Location\+::\+Tile\+Point\+::get\+Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocation_1_1TilePoint_a9d3f1c17f303840aa8a9644959b858ba}{}\label{classLocation_1_1TilePoint_a9d3f1c17f303840aa8a9644959b858ba}
+Returns an array holding both the x-\/ and y-\/coordinate, in the format \{x, y\} \begin{DoxyReturn}{Returns}
+An array \{x, y\} of the coordinates held. 
+\end{DoxyReturn}
+\index{Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}!getX@{getX}}
+\index{getX@{getX}!Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}}
+\subsubsection[{\texorpdfstring{get\+X()}{getX()}}]{\setlength{\rightskip}{0pt plus 5cm}int Location\+::\+Tile\+Point\+::getX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocation_1_1TilePoint_a166b89350a7751f08e8bfbf208da1a52}{}\label{classLocation_1_1TilePoint_a166b89350a7751f08e8bfbf208da1a52}
+Getter for the x-\/coordinate held by the \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} object. \begin{DoxyReturn}{Returns}
+The x-\/coordinate 
+\end{DoxyReturn}
+\index{Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}!getY@{getY}}
+\index{getY@{getY}!Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}}
+\subsubsection[{\texorpdfstring{get\+Y()}{getY()}}]{\setlength{\rightskip}{0pt plus 5cm}int Location\+::\+Tile\+Point\+::getY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocation_1_1TilePoint_a8def1dfe482d208f94165a62ee6d8dce}{}\label{classLocation_1_1TilePoint_a8def1dfe482d208f94165a62ee6d8dce}
+Getter for the y-\/coordinate held by the \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} object. \begin{DoxyReturn}{Returns}
+The y-\/coordinate 
+\end{DoxyReturn}
+\index{Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}!operator==@{operator==}}
+\index{operator==@{operator==}!Location\+::\+Tile\+Point@{Location\+::\+Tile\+Point}}
+\subsubsection[{\texorpdfstring{operator==(\+Tile\+Point const \&rhs)}{operator==(TilePoint const &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Location\+::\+Tile\+Point\+::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf Tile\+Point} const \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocation_1_1TilePoint_a1e5bb7ae1c5ac93ee563da915dd0c01b}{}\label{classLocation_1_1TilePoint_a1e5bb7ae1c5ac93ee563da915dd0c01b}
+
+
+Returns \{posX, posY\}. 
+
+Overloaded comparison operator for \hyperlink{classLocation_1_1TilePoint}{Tile\+Point}. 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & The \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} on the righthand-\/side of the comparison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether or not \+\_\+posX and \+\_\+posY in both \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} objects are equal 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ariel/\+Clion\+Projects/\+Tower\+Defense/include/\+Location/\hyperlink{TilePoint_8h}{Tile\+Point.\+h}\item 
+/home/ariel/\+Clion\+Projects/\+Tower\+Defense/src/\+Location/\hyperlink{TilePoint_8cpp}{Tile\+Point.\+cpp}\end{DoxyCompactItemize}

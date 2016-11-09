@@ -1,0 +1,150 @@
+\hypertarget{classTowers_1_1Tower}{}\section{Towers\+:\+:Tower Class Reference}
+\label{classTowers_1_1Tower}\index{Towers\+::\+Tower@{Towers\+::\+Tower}}
+
+
+{\ttfamily \#include $<$Tower.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTowers_1_1Tower_a6511a081fb1432562ef2cbbb451d50b9}{Tower} (\hyperlink{namespaceTowers_a6f61f1aa71f1052d02a163c184fc35b0}{Tower\+Type} type, \hyperlink{classLocation_1_1TilePoint}{Tile\+Point} location)
+\item 
+\hyperlink{classTowers_1_1Tower_a2f85aed489c39e547e44efcfe485869a}{$\sim$\+Tower} ()
+\item 
+void \hyperlink{classTowers_1_1Tower_a7bab24bb1608d1ab2dcdff9b6a7fb13b}{update} ()
+\item 
+void \hyperlink{classTowers_1_1Tower_a23e1e979de18daa1429cc1365037ba54}{render} ()
+\item 
+void \hyperlink{classTowers_1_1Tower_a637a00f1f82be01b86191bed853d9ea1}{take\+Damage} (int dmg)
+\item 
+void \hyperlink{classTowers_1_1Tower_a43f7e77c091249a320f4fc2222954711}{destroy} ()
+\item 
+void \hyperlink{classTowers_1_1Tower_ab9f7f72ebb28e6541adfbfd1cd27b783}{add\+Health} (int health)
+\item 
+int \hyperlink{classTowers_1_1Tower_ad2ad885a95f2207f086cf732523d6607}{get\+Health} () const 
+\item 
+bool \hyperlink{classTowers_1_1Tower_a7f844f6ea445d353dcb6e30708c95b61}{should\+Destroy} () const 
+\item 
+\hyperlink{namespaceTowers_a6f61f1aa71f1052d02a163c184fc35b0}{Tower\+Type} \hyperlink{classTowers_1_1Tower_a8fc0eacb236e7944b84b458e9999ac02}{get\+Type} () const 
+\item 
+\hyperlink{classLocation_1_1TilePoint}{Tile\+Point} \hyperlink{classTowers_1_1Tower_affe32d9c4ca9972c6050ebad896249f1}{get\+Pos} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!Tower@{Tower}}
+\index{Tower@{Tower}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{Tower(\+Tower\+Type type, Tile\+Point location)}{Tower(TowerType type, TilePoint location)}}]{\setlength{\rightskip}{0pt plus 5cm}Towers\+::\+Tower\+::\+Tower (
+\begin{DoxyParamCaption}
+\item[{{\bf Tower\+Type}}]{type, }
+\item[{{\bf Tile\+Point}}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_a6511a081fb1432562ef2cbbb451d50b9}{}\label{classTowers_1_1Tower_a6511a081fb1432562ef2cbbb451d50b9}
+Constructor for the tower class. Requires both type and location, with no default values 
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of tower to create. \\
+\hline
+{\em location} & The Tile\+Point location (tile grid, not pixels) for the tower to be created on \\
+\hline
+\end{DoxyParams}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!````~Tower@{$\sim$\+Tower}}
+\index{````~Tower@{$\sim$\+Tower}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{$\sim$\+Tower()}{~Tower()}}]{\setlength{\rightskip}{0pt plus 5cm}Towers\+::\+Tower\+::$\sim$\+Tower (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_a2f85aed489c39e547e44efcfe485869a}{}\label{classTowers_1_1Tower_a2f85aed489c39e547e44efcfe485869a}
+Destructor for the \hyperlink{classTowers_1_1Tower}{Tower} class. Empty as of yet. 
+
+\subsection{Member Function Documentation}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!add\+Health@{add\+Health}}
+\index{add\+Health@{add\+Health}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{add\+Health(int health)}{addHealth(int health)}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+::add\+Health (
+\begin{DoxyParamCaption}
+\item[{int}]{health}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_ab9f7f72ebb28e6541adfbfd1cd27b783}{}\label{classTowers_1_1Tower_ab9f7f72ebb28e6541adfbfd1cd27b783}
+Adds health to a tower. Param {\ttfamily health} is added to \+\_\+health. If the tower\textquotesingle{}s current health added to the {\ttfamily health} is greater than the max health for the defined Tower\+Type, then {\ttfamily \+\_\+health} will be set to the max health for the defined Tower\+Type. 
+\begin{DoxyParams}{Parameters}
+{\em health} & The amound of health to be added to the \hyperlink{classTowers_1_1Tower}{Tower}. \\
+\hline
+\end{DoxyParams}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!destroy@{destroy}}
+\index{destroy@{destroy}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{destroy()}{destroy()}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+::destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_a43f7e77c091249a320f4fc2222954711}{}\label{classTowers_1_1Tower_a43f7e77c091249a320f4fc2222954711}
+Mark a tower for destruction and begin playing the destroy animation. Seperate from the deletion operator in order to make sure the animation finishes playing before the object itself is destroyed. Sets {\ttfamily \+\_\+should\+Destroy} to true. \index{Towers\+::\+Tower@{Towers\+::\+Tower}!get\+Health@{get\+Health}}
+\index{get\+Health@{get\+Health}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{get\+Health() const }{getHealth() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Towers\+::\+Tower\+::get\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classTowers_1_1Tower_ad2ad885a95f2207f086cf732523d6607}{}\label{classTowers_1_1Tower_ad2ad885a95f2207f086cf732523d6607}
+Getter function for {\ttfamily \+\_\+health} \begin{DoxyReturn}{Returns}
+Current \hyperlink{classTowers_1_1Tower}{Tower} health 
+\end{DoxyReturn}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!get\+Pos@{get\+Pos}}
+\index{get\+Pos@{get\+Pos}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{get\+Pos() const }{getPos() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tile\+Point} Towers\+::\+Tower\+::get\+Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classTowers_1_1Tower_affe32d9c4ca9972c6050ebad896249f1}{}\label{classTowers_1_1Tower_affe32d9c4ca9972c6050ebad896249f1}
+Getter function for the {\ttfamily \+\_\+location} field \begin{DoxyReturn}{Returns}
+The Tile\+Point location of the tower. Is a tile coordinate, not pixel. 
+\end{DoxyReturn}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{get\+Type() const }{getType() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tower\+Type} Towers\+::\+Tower\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classTowers_1_1Tower_a8fc0eacb236e7944b84b458e9999ac02}{}\label{classTowers_1_1Tower_a8fc0eacb236e7944b84b458e9999ac02}
+Getter function for {\ttfamily \+\_\+type} \begin{DoxyReturn}{Returns}
+The Tower\+Type of the \hyperlink{classTowers_1_1Tower}{Tower} object 
+\end{DoxyReturn}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!render@{render}}
+\index{render@{render}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{render()}{render()}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+::render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_a23e1e979de18daa1429cc1365037ba54}{}\label{classTowers_1_1Tower_a23e1e979de18daa1429cc1365037ba54}
+\hyperlink{classTowers_1_1Tower}{Tower} render method. Is called after \hyperlink{classTowers_1_1Tower_a7bab24bb1608d1ab2dcdff9b6a7fb13b}{Tower\+::update()} in each update cycle. \index{Towers\+::\+Tower@{Towers\+::\+Tower}!should\+Destroy@{should\+Destroy}}
+\index{should\+Destroy@{should\+Destroy}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{should\+Destroy() const }{shouldDestroy() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Towers\+::\+Tower\+::should\+Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classTowers_1_1Tower_a7f844f6ea445d353dcb6e30708c95b61}{}\label{classTowers_1_1Tower_a7f844f6ea445d353dcb6e30708c95b61}
+Whether or not a tower has been marked for destruction \begin{DoxyReturn}{Returns}
+Whether or not a tower has been marked for destruction. 
+\end{DoxyReturn}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!take\+Damage@{take\+Damage}}
+\index{take\+Damage@{take\+Damage}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{take\+Damage(int dmg)}{takeDamage(int dmg)}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+::take\+Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{dmg}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_a637a00f1f82be01b86191bed853d9ea1}{}\label{classTowers_1_1Tower_a637a00f1f82be01b86191bed853d9ea1}
+Causes a tower to take damage. Damage subtracted from \+\_\+health. It is important to note that all of the logic is handled in \hyperlink{classTowers_1_1TowerMan}{Tower\+Man}, so it {\itshape is} possible for \+\_\+health to have a negative value. Currently unused. 
+\begin{DoxyParams}{Parameters}
+{\em dmg} & The amound of damage for the \hyperlink{classTowers_1_1Tower}{Tower} to take \\
+\hline
+\end{DoxyParams}
+\index{Towers\+::\+Tower@{Towers\+::\+Tower}!update@{update}}
+\index{update@{update}!Towers\+::\+Tower@{Towers\+::\+Tower}}
+\subsubsection[{\texorpdfstring{update()}{update()}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1Tower_a7bab24bb1608d1ab2dcdff9b6a7fb13b}{}\label{classTowers_1_1Tower_a7bab24bb1608d1ab2dcdff9b6a7fb13b}
+\hyperlink{classTowers_1_1Tower}{Tower} update method. Called before \hyperlink{classTowers_1_1Tower_a23e1e979de18daa1429cc1365037ba54}{Tower\+::render()} in each update cycle. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ariel/\+Clion\+Projects/\+Tower\+Defense/include/\+Tower/\hyperlink{Tower_8h}{Tower.\+h}\item 
+/home/ariel/\+Clion\+Projects/\+Tower\+Defense/src/\+Tower/\hyperlink{Tower_8cpp}{Tower.\+cpp}\end{DoxyCompactItemize}

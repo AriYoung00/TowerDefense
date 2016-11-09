@@ -1,0 +1,88 @@
+\hypertarget{classTowers_1_1TowerMan}{}\section{Towers\+:\+:Tower\+Man Class Reference}
+\label{classTowers_1_1TowerMan}\index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+
+
+{\ttfamily \#include $<$Tower\+Man.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTowers_1_1TowerMan_a0ccb478fcfcb2cbfd54b33d415438506}{Tower\+Man} ()
+\item 
+\hyperlink{classTowers_1_1TowerMan_aee8c65359cb059d4be1ce307962125a6}{$\sim$\+Tower\+Man} ()
+\item 
+void \hyperlink{classTowers_1_1TowerMan_ad48f5ce035f0ff19bd0533de0320dd9b}{update} ()
+\item 
+void \hyperlink{classTowers_1_1TowerMan_a882c6e8aa33d8011e3dcd8429f29f4b0}{render} ()
+\item 
+void \hyperlink{classTowers_1_1TowerMan_aea9d2466dbb48575b56c2d3a208a88f7}{on\+Button\+Click} (\hyperlink{classEvents_1_1ButtonClickEvent}{Button\+Click\+Event} event)
+\item 
+\hyperlink{classTowers_1_1Tower}{Tower} \& \hyperlink{classTowers_1_1TowerMan_a9ae25dd69d88c61df2911b5118b6fc42}{get\+Tower\+At} (\hyperlink{classLocation_1_1TilePoint}{Tile\+Point} location)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}!Tower\+Man@{Tower\+Man}}
+\index{Tower\+Man@{Tower\+Man}!Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+\subsubsection[{\texorpdfstring{Tower\+Man()}{TowerMan()}}]{\setlength{\rightskip}{0pt plus 5cm}Towers\+::\+Tower\+Man\+::\+Tower\+Man (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1TowerMan_a0ccb478fcfcb2cbfd54b33d415438506}{}\label{classTowers_1_1TowerMan_a0ccb478fcfcb2cbfd54b33d415438506}
+Constructor for the \hyperlink{classTowers_1_1TowerMan}{Tower\+Man} class. Initializes \+\_\+towers. \index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}!````~Tower\+Man@{$\sim$\+Tower\+Man}}
+\index{````~Tower\+Man@{$\sim$\+Tower\+Man}!Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+\subsubsection[{\texorpdfstring{$\sim$\+Tower\+Man()}{~TowerMan()}}]{\setlength{\rightskip}{0pt plus 5cm}Towers\+::\+Tower\+Man\+::$\sim$\+Tower\+Man (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1TowerMan_aee8c65359cb059d4be1ce307962125a6}{}\label{classTowers_1_1TowerMan_aee8c65359cb059d4be1ce307962125a6}
+Destructor for the \hyperlink{classTowers_1_1TowerMan}{Tower\+Man} class. Deletes \+\_\+towers. 
+
+\subsection{Member Function Documentation}
+\index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}!get\+Tower\+At@{get\+Tower\+At}}
+\index{get\+Tower\+At@{get\+Tower\+At}!Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+\subsubsection[{\texorpdfstring{get\+Tower\+At(\+Tile\+Point location)}{getTowerAt(TilePoint location)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tower} \& Towers\+::\+Tower\+Man\+::get\+Tower\+At (
+\begin{DoxyParamCaption}
+\item[{{\bf Tile\+Point}}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1TowerMan_a9ae25dd69d88c61df2911b5118b6fc42}{}\label{classTowers_1_1TowerMan_a9ae25dd69d88c61df2911b5118b6fc42}
+Get the tower at a particular tile-\/coordinate location. 
+\begin{DoxyParams}{Parameters}
+{\em location} & The Tile\+Point location for the tower to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \hyperlink{classTowers_1_1Tower}{Tower} on the Tile\+Point space specified be location. If no tower occupies the specified space, returns N\+U\+LL 
+\end{DoxyReturn}
+\index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}!on\+Button\+Click@{on\+Button\+Click}}
+\index{on\+Button\+Click@{on\+Button\+Click}!Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+\subsubsection[{\texorpdfstring{on\+Button\+Click(\+Button\+Click\+Event event)}{onButtonClick(ButtonClickEvent event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+Man\+::on\+Button\+Click (
+\begin{DoxyParamCaption}
+\item[{{\bf Button\+Click\+Event}}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1TowerMan_aea9d2466dbb48575b56c2d3a208a88f7}{}\label{classTowers_1_1TowerMan_aea9d2466dbb48575b56c2d3a208a88f7}
+Button\+Click event handler for the \hyperlink{classTowers_1_1TowerMan}{Tower\+Man} class. Is called from Event\+Man when a button related to creating or upgrading a tower is clicked. Removes/updates gui elemets in Gui\+Util. 
+\begin{DoxyParams}{Parameters}
+{\em event} & The Button\+Click\+Event object for the Button\+Click \\
+\hline
+\end{DoxyParams}
+\index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}!render@{render}}
+\index{render@{render}!Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+\subsubsection[{\texorpdfstring{render()}{render()}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+Man\+::render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1TowerMan_a882c6e8aa33d8011e3dcd8429f29f4b0}{}\label{classTowers_1_1TowerMan_a882c6e8aa33d8011e3dcd8429f29f4b0}
+Render method for \hyperlink{classTowers_1_1TowerMan}{Tower\+Man} class. Performs some pre-\/render actions, calls \hyperlink{classTowers_1_1Tower_a23e1e979de18daa1429cc1365037ba54}{Tower\+::render()} on the \hyperlink{classTowers_1_1Tower}{Tower} objects in \+\_\+towers. \index{Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}!update@{update}}
+\index{update@{update}!Towers\+::\+Tower\+Man@{Towers\+::\+Tower\+Man}}
+\subsubsection[{\texorpdfstring{update()}{update()}}]{\setlength{\rightskip}{0pt plus 5cm}void Towers\+::\+Tower\+Man\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTowers_1_1TowerMan_ad48f5ce035f0ff19bd0533de0320dd9b}{}\label{classTowers_1_1TowerMan_ad48f5ce035f0ff19bd0533de0320dd9b}
+Update method for \hyperlink{classTowers_1_1TowerMan}{Tower\+Man} class. Performs Tower-\/based logic, calls \hyperlink{classTowers_1_1Tower_a7bab24bb1608d1ab2dcdff9b6a7fb13b}{Tower\+::update()} in all of the \hyperlink{classTowers_1_1Tower}{Tower} instances in \+\_\+towers. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ariel/\+Clion\+Projects/\+Tower\+Defense/include/\+Tower/\hyperlink{TowerMan_8h}{Tower\+Man.\+h}\item 
+/home/ariel/\+Clion\+Projects/\+Tower\+Defense/src/\+Tower/\hyperlink{TowerMan_8cpp}{Tower\+Man.\+cpp}\end{DoxyCompactItemize}
