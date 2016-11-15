@@ -61,11 +61,18 @@ namespace Towers {
         vector<Tower> *_towersPtr;
         vector<Tower> &_towers;
 
+        sf::Clock _fireClock;
+        sf::Time _fireInterval;
+        sf::Time _fireAnimationInterval;
+
         /**
          * Private internal method used to destroy the Tower on TilePoint location.
          * @param location The TilePoint location of the Tower to be destroyed.
          */
         void _createTower(TowerType type, TilePoint location);
+
+        //Takes a reference since we're using an enhanced for loop
+        bool _hasMonsterInRange(Tower &tower);
     };
 }
 

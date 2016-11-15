@@ -5,6 +5,8 @@
 #ifndef TOWERDEFENSE_TOWER_H
 #define TOWERDEFENSE_TOWER_H
 
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Location/TilePoint.h"
 
 using Location::TilePoint;
@@ -62,6 +64,18 @@ namespace Towers {
         void addHealth(int health);
 
         /**
+         * Function called by TowerMan when each tower can fire. Sets _lastFireTime to FireTime, plays the fire sound,
+         * and switches to the firing texture.
+         * @param fireTime
+         */
+        void startFire(sf::Time fireTime);
+
+        /**
+         * Function called by TowerMan when the texture can be switched back to the not firing texture.
+         */
+        void stopFire(sf::Time fireTime);
+
+        /**
          * Getter function for \p _health
          * @return Current Tower health
          */
@@ -75,6 +89,12 @@ namespace Towers {
         bool shouldDestroy() const;
 
         /**
+         * Whether or not the tower is currently in a "firing" state.
+         * @return Whether or not the tower is firing
+         */
+        bool isFiring();
+
+        /**
          * Getter function for \p _type
          * @return The TowerType of the Tower object
          */
@@ -86,12 +106,32 @@ namespace Towers {
          */
         TilePoint getPos() const;
 
+        sf::Sprite &getSprite();
+
+        /**
+         * Getter for _lastFireTime
+         * @return The sf::Time of the last time the tower fired.
+         */
+        sf::Time &getLastFireTime();
+
     private:
         /**
          * Tower health
          */
         int _health;
+        bool _thing;
+        float _thing2;
         bool _shouldDestroy;
+        bool _isFiring;
+
+        sf::SoundBuffer _fireSoundBuffer;
+        sf::Sound _fireSound;
+
+        sf::Texture _normalTexture;
+        sf::Texture _firingTexture;
+        sf::Sprite _sprite;
+
+        sf::Time _lastFireTime;
 
         /**
          * TowerType for current tower
