@@ -45,6 +45,7 @@ int main () {
                                      sf::Mouse::getPosition(window).y);
                 cout << "moust clicked" << endl;
             }
+    }
 
             window.clear(sf::Color::Black);
 
@@ -56,7 +57,6 @@ int main () {
 
             window.display();
         }
-    }
 
 
     return 0;

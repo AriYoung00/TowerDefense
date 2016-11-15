@@ -18,6 +18,10 @@ namespace Monsters {
 
         for (auto &m : _monsters) {
             m->update();
+						if (m->getSprite().getPosition().x > 640) {
+							_monsters.erase(std::remove(_monsters.begin(), _monsters.end(), m), _monsters.end());
+							cout << "Monster count: " << _monsters.size() << endl;
+						}
         }
     }
 
