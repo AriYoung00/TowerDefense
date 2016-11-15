@@ -9,7 +9,8 @@ public:
 	Monster(double health);
 	double getHealth();
 private:
-	double health;
+	double _health;
+	
 }
 
 #endif //TOWERDEFENSE_MONSTER_H
