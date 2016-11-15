@@ -4,33 +4,37 @@
 #include "Location/TilePoint.h"
 
 namespace Location {
-    TilePoint::TilePoint(int x, int y, bool isTileCoord) {
+    TilePoint::TilePoint(float x, float y, bool isTileCoord) {
         //TODO: Use value of isTileCoord to determine whether or not x and y need to be converted to tile coord. Relies on TileUtil.
 
         _posX = x;
         _posY = y;
     }
 
-    int TilePoint::getX() {
+    void TilePoint::fromVector(sf::Vector2f vector) {
+
+    }
+
+    float TilePoint::getX() {
         return _posX;
     }
 
-    int TilePoint::getY() {
+    float TilePoint::getY() {
         return _posY;
     }
 
-    int TilePoint::getRealX() {
+    float TilePoint::getRealX() {
         //TODO: Replace placeholder function
-        return 20 * _posX;
+        return 20.0f * _posX;
     }
 
-    int TilePoint::getRealY() {
+    float TilePoint::getRealY() {
         //TODO: Replace placeholder function
-        return 20 * _posY;
+        return 20.0f * _posY;
     }
 
-    int *TilePoint::getPos() {
-        int temp[2] = {_posX, _posY};
+    float *TilePoint::getPos() {
+        float temp[2] = {_posX, _posY};
         return temp;
     }
 

@@ -17,37 +17,39 @@ namespace Location {
          * @param isTileCoord Whether /p x and /p y refer to a tile coordinate or pixel coordinate. Tile coordinate by
          *  default. If pixel coordinate, is translated into tile coordinate.
          */
-        TilePoint(int x, int y, bool isTileCoord = true);
+        TilePoint(float x, float y, bool isTileCoord = true);
+
+        void fromVector(sf::Vector2f vector);
 
         /**
          * Getter for the x-coordinate held by the TilePoint object.
          * @return The x-coordinate
          */
-        int getX();
+        float getX();
 
         /**
          * Getter for the y-coordinate held by the TilePoint object.
          * @return The y-coordinate
          */
-        int getY();
+        float getY();
 
         /**
          * Get the pixel x-coordinate of the center of the Tile that this TilePoint refers to
          * @return The pixel x-coordinate of the center of the Tile
          */
-        int getRealX();
+        float getRealX();
 
         /**
          * Get the pixel y-coordinate of the center of the Tile that thsi TilePoint refers to
          * @return The pixel y-coordinate of the center of the Tile
          */
-        int getRealY();
+        float getRealY();
 
         /**
          * Returns an array holding both the x- and y-coordinate, in the format {x, y}
          * @return An array {x, y} of the coordinates held.
          */
-        int *getPos(); ///Returns {posX, posY}
+        float *getPos(); ///Returns {posX, posY}
 
         /**
          * Get the sf::Vector position of the center of this tile
@@ -63,8 +65,8 @@ namespace Location {
         bool operator==(TilePoint const &rhs);
 
     private:
-        int _posX;
-        int _posY;
+        float _posX;
+        float _posY;
     };
 }
 
