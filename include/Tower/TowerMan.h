@@ -20,12 +20,7 @@ namespace Towers {
         /**
          * Constructor for the TowerMan class. Initializes _towers.
          */
-        TowerMan();
-
-        /**
-         * Destructor for the TowerMan class. Deletes _towers.
-         */
-        ~TowerMan();
+        TowerMan(sf::RenderWindow &window);
 
         /**
          * Update method for TowerMan class. Performs Tower-based logic, calls Tower::update() in all of the
@@ -46,6 +41,9 @@ namespace Towers {
          */
         void onButtonClick(ButtonClickEvent event);
 
+        ///Temporary method
+        void createTower(TowerType type, TilePoint location);
+
         /**
          * Get the tower at a particular tile-coordinate location.
          * @param location The TilePoint location for the tower to be returned.
@@ -58,18 +56,12 @@ namespace Towers {
         /**
          * vector<Tower> of all the Tower objects on the board.
          */
-        vector<Tower> *_towersPtr;
-        vector<Tower> &_towers;
+        vector<Tower> _towers;
 
+        sf::RenderWindow &_window;
         sf::Clock _fireClock;
         sf::Time _fireInterval;
         sf::Time _fireAnimationInterval;
-
-        /**
-         * Private internal method used to destroy the Tower on TilePoint location.
-         * @param location The TilePoint location of the Tower to be destroyed.
-         */
-        void _createTower(TowerType type, TilePoint location);
 
         //Takes a reference since we're using an enhanced for loop
         bool _hasMonsterInRange(Tower &tower);

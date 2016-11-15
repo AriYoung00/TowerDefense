@@ -31,9 +31,6 @@ namespace Towers {
         _sprite.setTexture(_normalTexture);
         _sprite.setPosition(_location.getVector());
 
-        _thing = true;
-        _thing2 = 0.1f;
-
         if (_type == TowerType::SHORT_RANGE) {
             _health = 650;
         } else if (_type == TowerType::LONG_RANGE) {
@@ -48,17 +45,7 @@ namespace Towers {
     }
 
     void Tower::update() {
-        //TODO: Actually write this. Relies on MonsterMan, TileUtil.
-        if (true) {
-            _sprite.setRotation(_thing2);
-            //cout << "Setting rotation to " << _thing2 << endl;
-            if (_thing2 >= 360)
-                _thing2 = 0;
-            else
-                _thing2 += 1;
-        }
 
-        _thing = !_thing;
     }
 
     void Tower::startFire(sf::Time fireTime) {

@@ -119,8 +119,6 @@ namespace Towers {
          * Tower health
          */
         int _health;
-        bool _thing;
-        float _thing2;
         bool _shouldDestroy;
         bool _isFiring;
 
