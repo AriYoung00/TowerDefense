@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+TowerDefense
 
 # Precompiled Headers
 *.gch
@@ -28,4 +29,11 @@
 *.out
 *.app
 
+# Project files
 .idea
+
+# CMake stuff
+CMakeFiles
+Makefile
+CMakeCache.txt
+cmake_install.cmake
