@@ -5,6 +5,8 @@
 #ifndef TOWERDEFENSE_TILEPOINT_H
 #define TOWERDEFENSE_TILEPOINT_H
 
+#include <SFML/Graphics.hpp>
+
 namespace Location {
     class TilePoint {
     public:
@@ -30,10 +32,28 @@ namespace Location {
         int getY();
 
         /**
+         * Get the pixel x-coordinate of the center of the Tile that this TilePoint refers to
+         * @return The pixel x-coordinate of the center of the Tile
+         */
+        int getRealX();
+
+        /**
+         * Get the pixel y-coordinate of the center of the Tile that thsi TilePoint refers to
+         * @return The pixel y-coordinate of the center of the Tile
+         */
+        int getRealY();
+
+        /**
          * Returns an array holding both the x- and y-coordinate, in the format {x, y}
          * @return An array {x, y} of the coordinates held.
          */
         int *getPos(); ///Returns {posX, posY}
+
+        /**
+         * Get the sf::Vector position of the center of this tile
+         * @return An sf::Vector referring to the center of this tile
+         */
+        sf::Vector2f getVector();
 
         /**
          * Overloaded comparison operator for TilePoint.

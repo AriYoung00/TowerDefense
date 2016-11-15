@@ -19,9 +19,23 @@ namespace Location {
         return _posY;
     }
 
+    int TilePoint::getRealX() {
+        //TODO: Replace placeholder function
+        return 20 * _posX;
+    }
+
+    int TilePoint::getRealY() {
+        //TODO: Replace placeholder function
+        return 20 * _posY;
+    }
+
     int *TilePoint::getPos() {
         int temp[2] = {_posX, _posY};
         return temp;
+    }
+
+    sf::Vector2f TilePoint::getVector() {
+        return sf::Vector2f((float) (20 * _posX), (float) (20 * _posY));
     }
 
     bool TilePoint::operator==(TilePoint const &rhs) {
