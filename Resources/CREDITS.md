@@ -4,4 +4,4 @@ Tower fire muzzle flash -- taken from [this sprite sheet](https://s-media-cache-
 
 Tower level 1 image -- taken from [this sprite sheet](https://www.spriters-resource.com/snes/frontmission/sheet/10708/), which is by [Arima](https://www.spriters-resource.com/submitter/Arima/) on [The Spriter's Resource](https://www.spriters-resource.com).
 
-TowerFireSound-1 -- taken directly from [here](http://soundbible.com/1326-Tank-Firing.html), recorded by user snottyboy on [SoundBible](http://soundbible.com/). 
+TowerFireSound-1 -- taken directly from [here](http://soundbible.com/1228-Machine-Gun-Burst-50-Cal.html), recorded by user Mike Koenig on [SoundBible](http://soundbible.com/). 
