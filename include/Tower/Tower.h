@@ -7,9 +7,12 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+
+#include "Monster/Monster.h"
 #include "Location/TilePoint.h"
 
 using Location::TilePoint;
+using Monsters::Monster;
 
 namespace Towers {
     enum class TowerType {
@@ -23,7 +26,7 @@ namespace Towers {
          * @param type The type of tower to create.
          * @param location The TilePoint location (tile grid, not pixels) for the tower to be created on
          */
-        Tower(TowerType type, TilePoint location);
+        Tower(TowerType type, float x, float y, Monster initialTarget);
 
         /**
          * Destructor for the Tower class. Empty as of yet.
@@ -34,11 +37,6 @@ namespace Towers {
          * Tower update method. Called before Tower::render() in each update cycle.
          */
         void update();
-
-        /**
-         * Tower render method. Is called after Tower::update() in each update cycle.
-         */
-        void render();
 
         /**
          * Causes a tower to take damage. Damage subtracted from _health. It is important to note that all of the
@@ -74,6 +72,8 @@ namespace Towers {
          * Function called by TowerMan when the texture can be switched back to the not firing texture.
          */
         void stopFire(sf::Time fireTime);
+
+        void setTarget(const Monster &monster);
 
         /**
          * Getter function for \p _health
@@ -122,6 +122,7 @@ namespace Towers {
         bool _shouldDestroy;
         bool _isFiring;
 
+
         sf::SoundBuffer _fireSoundBuffer;
         sf::Sound _fireSound;
 
@@ -131,15 +132,9 @@ namespace Towers {
 
         sf::Time _lastFireTime;
 
-        /**
-         * TowerType for current tower
-         */
+        Monster &_target;
         TowerType _type;
-
-        /**
-         * TilePoint location for current tower
-         */
-        TilePoint _location;
+        //TilePoint _location;
     };
 }
 

@@ -9,10 +9,12 @@
 #include "Tower.h"
 #include "Events/ButtonClickEvent.h"
 #include "Location/TilePoint.h"
+#include "Monster/MonsterMan.h"
 
 using std::vector;
 using Events::ButtonClickEvent;
 using Location::TilePoint;
+using Monsters::MonsterMan;
 
 namespace Towers {
     class TowerMan {
@@ -20,7 +22,7 @@ namespace Towers {
         /**
          * Constructor for the TowerMan class. Initializes _towers.
          */
-        TowerMan(sf::RenderWindow &window);
+        TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan);
 
         /**
          * Update method for TowerMan class. Performs Tower-based logic, calls Tower::update() in all of the
@@ -42,7 +44,7 @@ namespace Towers {
         void onButtonClick(ButtonClickEvent event);
 
         ///Temporary method
-        void createTower(TowerType type, TilePoint location);
+        void createTower(TowerType type, float x, float y);
 
         /**
          * Get the tower at a particular tile-coordinate location.
@@ -51,6 +53,7 @@ namespace Towers {
          * specified space, returns NULL
          */
         Tower &getTowerAt(TilePoint location);
+
 
     private:
         /**
@@ -62,6 +65,9 @@ namespace Towers {
         sf::Clock _fireClock;
         sf::Time _fireInterval;
         sf::Time _fireAnimationInterval;
+
+        Monster _initialTarget;
+        MonsterMan _monsterMan;
 
         //Takes a reference since we're using an enhanced for loop
         bool _hasMonsterInRange(Tower &tower);
