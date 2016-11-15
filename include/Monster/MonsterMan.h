@@ -1,8 +1,17 @@
 //
-// Created by ariel on 11/8/16.
+// Created by collin on 11/8/16.
 //
 
 #ifndef TOWERDEFENSE_MONSTERMAN_H
 #define TOWERDEFENSE_MONSTERMAN_H
+
+#include "Monsters::Monster.h"
+
+class MonsterMan
+{
+public:
+	MonsterMan();
+	Monster makeMonster();
+}
 
 #endif //TOWERDEFENSE_MONSTERMAN_H

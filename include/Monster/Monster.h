@@ -1,3 +1,5 @@
+// written by collin
+
 #ifndef TOWERDEFENSE_MONSTER_H
 #define TOWERDEFENSE_MONSTER_H
 
@@ -5,7 +7,7 @@ class Monster
 {
 public:
 	Monster(double health);
-	getHealth();
+	double getHealth();
 private:
 	double health;
 }
