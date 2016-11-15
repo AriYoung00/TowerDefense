@@ -1,6 +1,7 @@
 #include "Monster/MonsterMan.h"
 
 #include <iostream>
+#include <cmath>
 
 using Location::TilePoint;
 using std::cout;
