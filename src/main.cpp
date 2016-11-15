@@ -45,18 +45,18 @@ int main () {
                                      sf::Mouse::getPosition(window).y);
                 cout << "moust clicked" << endl;
             }
-    }
+    		}
 
-            window.clear(sf::Color::Black);
+				window.clear(sf::Color::Black);
 
-            towerMan.update();
-            towerMan.render();
+				towerMan.update();
+				towerMan.render();
 
-            monstMan.update();
-            monstMan.render();
+				monstMan.update();
+				monstMan.render();
 
-            window.display();
-        }
+				window.display();
+		}
 
 
     return 0;
