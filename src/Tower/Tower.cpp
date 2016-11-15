@@ -12,7 +12,8 @@ using std::endl;
 
 
 namespace Towers {
-    Tower::Tower(TowerType type, TilePoint location) : _location(location) {
+    Tower::Tower(TowerType type, float x, float y, Monster initialTarget) : /*_location(location),*/
+            _target(initialTarget) {
         _type = type;
 
         // Loading resources
@@ -29,7 +30,8 @@ namespace Towers {
         _lastFireTime = sf::seconds(0);
 
         _sprite.setTexture(_normalTexture);
-        _sprite.setPosition(_location.getVector());
+        _sprite.setOrigin(15, 55);
+        _sprite.setPosition(x, y);
 
         if (_type == TowerType::SHORT_RANGE) {
             _health = 650;
@@ -45,10 +47,22 @@ namespace Towers {
     }
 
     void Tower::update() {
+        sf::Vector2f curPos = _sprite.getPosition();
+        sf::Vector2f position = _target.getSprite().getPosition();
 
+
+        const float PI = 3.14159265;
+
+        float dx = curPos.x - position.x;
+        float dy = curPos.y - position.y;
+
+        float rotation = (atan2(dy, dx)) * 180 / PI;
+
+        _sprite.setRotation(rotation);
     }
 
     void Tower::startFire(sf::Time fireTime) {
+        _sprite.setRotation(90);
         _lastFireTime = fireTime;
         _isFiring = true;
         _sprite.setTexture(_firingTexture);
@@ -56,13 +70,14 @@ namespace Towers {
     }
 
     void Tower::stopFire(sf::Time fireTime) {
+        _sprite.setRotation(0);
         _lastFireTime = fireTime;
         _isFiring = false;
         _sprite.setTexture(_normalTexture);
     }
 
-    void Tower::render() {
-        //TODO: Actually write this. Relies on TileUtil.
+    void Tower::setTarget(const Monster &monster) {
+        _target = monster;
     }
 
     void Tower::destroy() {
@@ -97,9 +112,9 @@ namespace Towers {
         return _type;
     }
 
-    TilePoint Tower::getPos() const {
+    /*TilePoint Tower::getPos() const {
         return _location;
-    }
+    }*/
 
     sf::Sprite &Tower::getSprite() {
         return _sprite;
