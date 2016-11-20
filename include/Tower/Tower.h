@@ -114,6 +114,10 @@ namespace Towers {
          */
         sf::Time &getLastFireTime();
 
+        static sf::SoundBuffer _fireSoundBuffer;
+        static sf::Texture _normalTexture;
+        static sf::Texture _firingTexture;
+
     private:
         /**
          * Tower health
@@ -123,11 +127,8 @@ namespace Towers {
         bool _isFiring;
 
 
-        sf::SoundBuffer _fireSoundBuffer;
         sf::Sound _fireSound;
 
-        sf::Texture _normalTexture;
-        sf::Texture _firingTexture;
         sf::Sprite _sprite;
 
         sf::Time _lastFireTime;

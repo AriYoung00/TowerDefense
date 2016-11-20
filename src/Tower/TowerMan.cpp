@@ -14,6 +14,10 @@ namespace Towers {
               _monsterMan(monsterMan) {
         _fireInterval = sf::seconds(0.7f);
         _fireAnimationInterval = sf::seconds(0.3f);
+
+        Tower::_normalTexture.loadFromFile("Resources/Textures/Tower-lvl1.png");
+        Tower::_firingTexture.loadFromFile("Resources/Textures/Tower-lvl1-fire.png");
+        Tower::_fireSoundBuffer.loadFromFile("Resources/Sounds/TowerFireSound-1.wav");
     }
 
 

@@ -18,6 +18,7 @@ using Towers::TowerMan;
 
 using Monsters::MonsterMan;
 
+
 int main () {
     sf::RenderWindow window(sf::VideoMode(640, 480, 32), "Tower Defense", sf::Style::Close);
 
