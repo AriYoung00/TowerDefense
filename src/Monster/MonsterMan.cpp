@@ -1,14 +1,15 @@
 #include "Monster/MonsterMan.h"
 
 #include <iostream>
-#include <cmath>
 
 using Location::TilePoint;
 using std::cout;
 using std::endl;
 
 namespace Monsters {
-    MonsterMan::MonsterMan(sf::RenderWindow &window) : _window(window), _monsters() {}
+    MonsterMan::MonsterMan(sf::RenderWindow &window) : _window(window), _monsters() {
+        Monster::_spriteSheet.loadFromFile("Resources/Textures/MonsterSpriteSheet.png");
+    }
 
     void MonsterMan::update() {
         if (_spawnClock.getElapsedTime().asSeconds() >= 3) {
