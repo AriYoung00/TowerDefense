@@ -64,6 +64,7 @@ namespace Towers {
         _lastFireTime = fireTime;
         _isFiring = true;
         _sprite.setTexture(_firingTexture);
+        _target->takeDamage(10);
         /* _fireSound.play(); */
     }
 
