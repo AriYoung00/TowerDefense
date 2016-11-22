@@ -31,6 +31,9 @@ TowerDefense
 
 # Project files
 .idea
+*.depend
+*.layout
+*.cbp
 
 # CMake stuff
 CMakeFiles
