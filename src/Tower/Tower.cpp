@@ -3,8 +3,8 @@
 //
 
 #include "Tower/Tower.h"
+
 #include <iostream>
-#include <cmath>
 
 using Location::TilePoint;
 
@@ -13,18 +13,14 @@ using std::endl;
 
 
 namespace Towers {
+    sf::Texture Tower::_normalTexture = sf::Texture();
+    sf::Texture Tower::_firingTexture = sf::Texture();
+    sf::SoundBuffer Tower::_fireSoundBuffer = sf::SoundBuffer();
+
     Tower::Tower(TowerType type, float x, float y, Monster initialTarget) : /*_location(location),*/
             _target(initialTarget) {
         _type = type;
 
-        // Loading resources
-        if (!_normalTexture.loadFromFile("Resources/Textures/Tower-lvl1.png"))
-            //Will print name dynamically with other textures
-            cout << "Tower normal texture " << "Tower-lvl1.png" << " not loaded" << endl;
-        if (!_firingTexture.loadFromFile("Resources/Textures/Tower-lvl1-fire.png"))
-            cout << "Tower firing texture " << "Resources/Textures/Tower-lvl1-fire.png" << " not loaded";
-        if (!_fireSoundBuffer.loadFromFile("Resources/Sounds/TowerFireSound-1.wav"))
-            cout << "Tower fire sound " << "TowerFireSound-1.wav" << " not loaded" << endl;
         _fireSound.setBuffer(_fireSoundBuffer);
 
         //So they can fire as soon as they're created.

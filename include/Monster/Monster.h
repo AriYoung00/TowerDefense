@@ -20,13 +20,14 @@ namespace Monsters {
 
         TilePoint getLocation();
 
+        static sf::Texture _spriteSheet;
+
     private:
         float _speed;
         int _health;
 
         //TilePoint _location;
 
-        sf::Texture _spriteSheet;
 
         //only animation for now
         sf::Clock _frameClock;

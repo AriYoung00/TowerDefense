@@ -6,12 +6,13 @@ using std::cout;
 using std::endl;
 
 
+
 namespace Monsters
 {
+    sf::Texture Monster::_spriteSheet = sf::Texture();
+
     Monster::Monster(/*TilePoint initialLoc, */float speed) : /*_location(initialLoc)*/ _frameClock() {
         _speed = speed;
-
-        _spriteSheet.loadFromFile("Resources/Textures/MonsterSpriteSheet.png");
 
         _walkForwardsAnimation.setSpriteSheet(_spriteSheet);
         _walkForwardsAnimation.addFrame(sf::IntRect(19, 88, 51, 51));
