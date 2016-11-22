@@ -44,7 +44,7 @@ int main () {
             } else if (event.type == sf::Event::MouseButtonReleased) {
                 towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
                                      sf::Mouse::getPosition(window).y);
-                cout << "moust clicked" << endl;
+                cout << "mouse clicked" << endl;
             }
     		}
 

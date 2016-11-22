@@ -18,8 +18,8 @@ namespace Towers {
     sf::Texture Tower::_firingTexture = sf::Texture();
     sf::SoundBuffer Tower::_fireSoundBuffer = sf::SoundBuffer();
 
-    Tower::Tower(TowerType type, float x, float y, Monster initialTarget) : /*_location(location),*/
-            _target(initialTarget) {
+    Tower::Tower(TowerType type, float x, float y, Monster &initialTarget) : /*_location(location),*/
+            _target(&initialTarget) {
         _type = type;
 
         _fireSound.setBuffer(_fireSoundBuffer);
@@ -46,7 +46,7 @@ namespace Towers {
 
     void Tower::update() {
         sf::Vector2f curPos = _sprite.getPosition();
-        sf::Vector2f position = _target.getSprite().getPosition();
+        sf::Vector2f position = _target->getSprite().getPosition();
 
 
         const float PI = 3.14159265;
@@ -54,7 +54,7 @@ namespace Towers {
         float dx = curPos.x - position.x;
         float dy = curPos.y - position.y;
 
-        float rotation = (atan2(dy, dx)) * 180 / PI;
+        float rotation = ((atan2(dy, dx)) * 180 / PI) - 90;
 
         _sprite.setRotation(rotation);
     }
@@ -64,7 +64,7 @@ namespace Towers {
         _lastFireTime = fireTime;
         _isFiring = true;
         _sprite.setTexture(_firingTexture);
-        _fireSound.play();
+        /* _fireSound.play(); */
     }
 
     void Tower::stopFire(sf::Time fireTime) {
@@ -74,8 +74,8 @@ namespace Towers {
         _sprite.setTexture(_normalTexture);
     }
 
-    void Tower::setTarget(const Monster &monster) {
-        _target = monster;
+    void Tower::setTarget(Monster &monster) {
+        _target = &monster;
     }
 
     void Tower::destroy() {

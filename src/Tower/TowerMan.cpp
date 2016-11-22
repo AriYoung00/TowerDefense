@@ -11,7 +11,7 @@ using std::endl;
 namespace Towers {
     TowerMan::TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan)
             : _towers(), _window(window), _initialTarget(0),
-              _monsterMan(monsterMan) {
+              _monsterMan(&monsterMan) {
         _fireInterval = sf::seconds(0.7f);
         _fireAnimationInterval = sf::seconds(0.3f);
 
@@ -34,7 +34,7 @@ namespace Towers {
             else if ((currentElapsed - t.getLastFireTime()) >= _fireAnimationInterval && t.isFiring())
                 t.stopFire(currentElapsed);
 
-            //t.setTarget(_monsterMan.getMonstersInRange(t.getSprite().getPosition(), 10000, _initialTarget));
+			t.setTarget(_monsterMan->getMonstersInRange(t.getSprite().getPosition(), 10000, _initialTarget));
 
             t.update();
         }
