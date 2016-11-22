@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 project(TowerDefense)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_BUILD_TYPE Debug)
 
 set(SOURCE_FILES src/main.cpp src/Tower/Tower.cpp include/Tower/Tower.h src/Tower/TowerMan.cpp include/Tower/TowerMan.h
         src/Events/ButtonClickEvent.cpp include/Events/ButtonClickEvent.h src/Location/TilePoint.cpp include/Location/TilePoint.h
