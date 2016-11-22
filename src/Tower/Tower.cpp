@@ -5,6 +5,7 @@
 #include "Tower/Tower.h"
 
 #include <iostream>
+#include <cmath>
 
 using Location::TilePoint;
 
