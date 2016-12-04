@@ -6,7 +6,8 @@ set(CMAKE_BUILD_TYPE Debug)
 
 set(SOURCE_FILES src/main.cpp src/Tower/Tower.cpp include/Tower/Tower.h src/Tower/TowerMan.cpp include/Tower/TowerMan.h
         src/Events/ButtonClickEvent.cpp include/Events/ButtonClickEvent.h src/Location/TilePoint.cpp include/Location/TilePoint.h
-        src/Monster/Monster.cpp include/Monster/Monster.h src/Monster/MonsterMan.cpp include/Monster/MonsterMan.h include/SFMLLib/Animation.hpp include/SFMLLib/Animation.cpp include/SFMLLib/AnimatedSprite.hpp include/SFMLLib/AnimatedSprite.cpp)
+        src/Monster/Monster.cpp include/Monster/Monster.h src/Monster/MonsterMan.cpp include/Monster/MonsterMan.h include/lib/Animation.hpp
+        include/lib/Animation.cpp include/lib/AnimatedSprite.hpp include/lib/AnimatedSprite.cpp include/lib/json.hpp)
 add_executable(TowerDefense ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
