@@ -18,9 +18,10 @@ using Towers::TowerMan;
 
 using Monsters::MonsterMan;
 
-
 int main () {
-    sf::RenderWindow window(sf::VideoMode(640, 480, 32), "Tower Defense", sf::Style::Close);
+    // Breaks on 4:3, large screen sizes, but is an acceptable scaling solution for now
+    double scale = sf::VideoMode::getDesktopMode().height / 1080;
+    sf::RenderWindow window(sf::VideoMode(640 * scale, 480 * scale, 32), "Tower Defense", sf::Style::Close);
 
     MonsterMan monstMan(window);
     TowerMan towerMan(window, monstMan);
