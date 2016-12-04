@@ -2,8 +2,9 @@
 #define TOWERDEFENSE_MONSTER_H
 
 #include "Location/TilePoint.h"
-#include "SFMLLib/Animation.hpp"
-#include "SFMLLib/AnimatedSprite.hpp"
+#include "lib/Animation.hpp"
+#include "lib/AnimatedSprite.hpp"
+
 
 using Location::TilePoint;
 
