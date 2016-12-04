@@ -30,7 +30,7 @@ namespace Monsters {
 
     private:
         float _speed;
-        int _health;
+        unsigned int _health;
         bool _isDead = false;
         //TilePoint _location;
 

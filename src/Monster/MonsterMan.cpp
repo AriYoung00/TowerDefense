@@ -47,7 +47,7 @@ namespace Monsters {
             // Sorry about this. It's late, I'm lazy.
             distance = sqrt(pow(point.x - m->getSprite().getPosition().x, 2) +
                             pow(point.y - m->getSprite().getPosition().y, 2));
-            if (distance <= range)
+            if (distance <= range && !m->isDead())
                 return *m;
         }
 
