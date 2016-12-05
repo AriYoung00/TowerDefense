@@ -7,16 +7,17 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Monster.h"
+#include "UI/UIManager.h"
+#include "Monster/Monster.h"
 
 using std::vector;
 
 namespace Monsters {
     class MonsterMan {
     public:
-        MonsterMan(sf::RenderWindow &window);
+        MonsterMan(sf::RenderWindow &window, UIManager &uiManager);
 
-        Monster &getMonstersInRange(const sf::Vector2f &point, double range, Monster &defaultValue);
+        Monster *getMonstersInRange(const sf::Vector2f &point, double range);
 
         void update();
 
@@ -29,6 +30,7 @@ namespace Monsters {
 
         sf::Clock _spawnClock;
         sf::RenderWindow &_window;
+		UIManager &_uiManager;
     };
 }
 
