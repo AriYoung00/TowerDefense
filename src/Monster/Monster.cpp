@@ -49,6 +49,7 @@ namespace Monsters
 		_deathAnimation.addFrame(sf::IntRect(384, 217, 51, 51));
 		
 		_sprite.setAnimation(_walkForwardsAnimation);
+        _sprite.setScale(2.0, 2.0);
 		_sprite.setPosition(0, 240);
 
 
