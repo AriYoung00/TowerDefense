@@ -41,17 +41,17 @@ namespace Monsters {
         }
     }
 
-    Monster &MonsterMan::getMonstersInRange(const sf::Vector2f &point, double range, Monster &defaultValue) {
+    Monster *MonsterMan::getMonstersInRange(const sf::Vector2f &point, double range) {
         double distance = 0;
         for (auto &m : _monsters) {
             // Sorry about this. It's late, I'm lazy.
             distance = sqrt(pow(point.x - m->getSprite().getPosition().x, 2) +
                             pow(point.y - m->getSprite().getPosition().y, 2));
             if (distance <= range)
-                return *m;
+                return m;
         }
 
-        return defaultValue;
+        return nullptr;
     }
 
     void MonsterMan::createMonster() {

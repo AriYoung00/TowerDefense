@@ -66,7 +66,6 @@ namespace Towers {
         sf::Time _fireInterval;
         sf::Time _fireAnimationInterval;
 
-        Monster _initialTarget;
         MonsterMan *_monsterMan;
 
         //Takes a reference since we're using an enhanced for loop

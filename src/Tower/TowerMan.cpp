@@ -10,7 +10,7 @@ using std::endl;
 
 namespace Towers {
     TowerMan::TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan)
-            : _towers(), _window(window), _initialTarget(0),
+            : _towers(), _window(window),
               _monsterMan(&monsterMan) {
         _fireInterval = sf::seconds(0.7f);
         _fireAnimationInterval = sf::seconds(0.05f);
@@ -34,7 +34,7 @@ namespace Towers {
             else if ((currentElapsed - t.getLastFireTime()) >= _fireAnimationInterval && t.isFiring())
                 t.stopFire(currentElapsed);
 
-			t.setTarget(_monsterMan->getMonstersInRange(t.getSprite().getPosition(), 10000, _initialTarget));
+			t.setTarget(_monsterMan->getMonstersInRange(t.getSprite().getPosition(), 10000));
 
             t.update();
         }
@@ -65,7 +65,7 @@ namespace Towers {
     }
 
     void TowerMan::createTower(TowerType type, float x, float y) {
-        Tower t(type, x, y, _initialTarget);
+        Tower t(type, x, y);
         _towers.push_back(t);
     }
 }

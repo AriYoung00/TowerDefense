@@ -24,9 +24,6 @@ int main () {
 
     MonsterMan monstMan(window);
     TowerMan towerMan(window, monstMan);
-    Monster m1(0.3);
-    vector<Monster *> thing;
-    thing.push_back(&m1);
 
     window.setFramerateLimit(240);
     sf::SoundBuffer sound;

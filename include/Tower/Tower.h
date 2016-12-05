@@ -26,7 +26,7 @@ namespace Towers {
          * @param type The type of tower to create.
          * @param location The TilePoint location (tile grid, not pixels) for the tower to be created on
          */
-        Tower(TowerType type, float x, float y, Monster &initialTarget);
+        Tower(TowerType type, float x, float y);
 
         /**
          * Destructor for the Tower class. Empty as of yet.
@@ -73,7 +73,7 @@ namespace Towers {
          */
         void stopFire(sf::Time fireTime);
 
-        void setTarget(Monster &monster);
+        void setTarget(Monster *monster);
 
         /**
          * Getter function for \p _health
@@ -133,7 +133,7 @@ namespace Towers {
 
         sf::Time _lastFireTime;
 
-        Monster *_target;
+        Monster *_target = nullptr;
         TowerType _type;
         //TilePoint _location;
     };
