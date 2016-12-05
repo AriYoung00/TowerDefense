@@ -17,3 +17,7 @@ on the [RPG Maker forums](http://forums.rpgmakerweb.com/). As far as I can tell,
 
 Gravel texture taken from [this url](http://opengameart.org/sites/default/files/styles/watermarked/public/styles/medium/public/RockTile.png) 
 (could not find creator info) on [OpenGameArt.org](http://opengameart.org/)
+
+The monster spawn location texture is shamelessly stolen straight from the Minecraft beacon texture.
+
+Base/castle clipart thing taken from [here](http://www.clipartkid.com/castle-20clip-20art-clipart-panda-free-clipart-images-2AnofI-clipart/)
