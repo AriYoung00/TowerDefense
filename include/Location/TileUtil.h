@@ -6,9 +6,11 @@ namespace Location {
     class TileUtil {
     public:
         static void init(int screenWidth, int screenY);
-        static void loadMap(string mapName);
+        static void loadMap(string mapLocation);
+        static void render(sf::RenderWindow & window);
         static void tileFromCoordinate(int locX, int locY);
         static void tileFromCoordinate(sf::Vector2f coord);
+
 
     private:
         static int _pixelWidth;
@@ -20,5 +22,6 @@ namespace Location {
 
         static string _mapName;
         static sf::VertexArray _vertexArr;
+        static sf::Texture _tileMap;
     };
 }
