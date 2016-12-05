@@ -25,6 +25,8 @@ namespace Monsters {
         sf::Texture _spriteSheet;
 
     private:
+
+
         float _speed;
         unsigned int _health;
         bool _isDead = false;
