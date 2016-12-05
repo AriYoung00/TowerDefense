@@ -7,6 +7,7 @@
 
 #include "Tower/Tower.h"
 #include "Tower/TowerMan.h"
+#include "Location/TileUtil.h"
 
 
 using std::cout;
@@ -18,10 +19,16 @@ using Towers::TowerMan;
 
 using Monsters::MonsterMan;
 
+using Location::TileUtil;
+
+
 int main () {
     // Breaks on 4:3, large screen sizes, but is an acceptable scaling solution for now
     double scale = sf::VideoMode::getDesktopMode().height / 1080;
-    sf::RenderWindow window(sf::VideoMode(640 * scale, 480 * scale, 32), "Tower Defense", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(1000, 1000, 32), "Tower Defense", sf::Style::Close);
+
+    TileUtil::init(1000, 1000);
+    TileUtil::loadMap("Resources/Maps/TestMap.json");
 
     MonsterMan monstMan(window);
     TowerMan towerMan(window, monstMan);
@@ -40,25 +47,27 @@ int main () {
         sf::Event event;
         while(window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                cout << "received close event" << endl;
                 window.close();
             } else if (event.type == sf::Event::MouseButtonReleased) {
                 towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
                                      sf::Mouse::getPosition(window).y);
                 cout << "mouse clicked" << endl;
             }
-    		}
+        }
 
-				window.clear(sf::Color::Black);
+        window.clear(sf::Color::Black);
 
-				towerMan.update();
-				towerMan.render();
+        TileUtil::render(window);
 
-				monstMan.update();
-				monstMan.render();
+        towerMan.update();
+        towerMan.render();
 
-				window.display();
-		}
+        monstMan.update();
+        monstMan.render();
+
+
+        window.display();
+    }
 
 
     return 0;
