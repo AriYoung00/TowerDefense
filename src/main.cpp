@@ -26,10 +26,10 @@ int main () {
     TowerMan towerMan(window, monstMan);
 
     window.setFramerateLimit(240);
-    sf::SoundBuffer sound;
-    sound.loadFromFile("Resources/Sounds/TowerFireSound-1.wav");
-    sf::Sound sound1;
-    sound1.setBuffer(sound);
+    sf::SoundBuffer fireSound;
+    fireSound.loadFromFile("Resources/Sounds/TowerFireSound-1.wav");
+    sf::Sound sound;
+    sound.setBuffer(fireSound);
     //sound1.play();
 
     while (window.isOpen()) {
@@ -41,21 +41,19 @@ int main () {
             } else if (event.type == sf::Event::MouseButtonReleased) {
                 towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
                                      sf::Mouse::getPosition(window).y);
-                cout << "mouse clicked" << endl;
             }
-    		}
-
-				window.clear(sf::Color::Black);
-
-				towerMan.update();
-				towerMan.render();
-
-				monstMan.update();
-				monstMan.render();
-
-				window.display();
 		}
 
+		window.clear(sf::Color::Black);
+
+		towerMan.update();
+		towerMan.render();
+
+		monstMan.update();
+		monstMan.render();
+
+		window.display();
+	}
 
     return 0;
 }
