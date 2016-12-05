@@ -5,15 +5,16 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_BUILD_TYPE Debug)
 
 set(SOURCE_FILES src/main.cpp
-	src/Tower/Tower.cpp
-	src/Tower/TowerMan.cpp
-	src/Events/ButtonClickEvent.cpp
-	src/Location/TilePoint.cpp
-	src/Monster/Monster.cpp
-	src/Monster/MonsterMan.cpp
-	include/SFMLLib/Animation.cpp
-	include/SFMLLib/AnimatedSprite.cpp
-	src/UI/UIManager.cpp
+        src/Tower/Tower.cpp
+        src/Tower/TowerMan.cpp
+        src/Events/ButtonClickEvent.cpp
+        src/Location/TilePoint.cpp
+        src/Monster/Monster.cpp
+        src/Monster/MonsterMan.cpp
+        src/UI/UIManager.cpp
+        src/Location/TileUtil.cpp
+
+        include
 )
 add_executable(TowerDefense ${SOURCE_FILES})
 

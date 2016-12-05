@@ -8,7 +8,6 @@
 #include "Tower/Tower.h"
 #include "Tower/TowerMan.h"
 #include "Location/TileUtil.h"
-#include "UI/UIManager.h"
 
 
 using std::cout;
@@ -24,9 +23,6 @@ using Location::TileUtil;
 
 
 int main () {
-    sf::RenderWindow window(sf::VideoMode(640, 480, 32), "Tower Defense", sf::Style::Close);
-
-
     // Breaks on 4:3, large screen sizes, but is an acceptable scaling solution for now
     double scale = sf::VideoMode::getDesktopMode().height / 1080;
     sf::RenderWindow window(sf::VideoMode(1000, 1000, 32), "Tower Defense", sf::Style::Close);
