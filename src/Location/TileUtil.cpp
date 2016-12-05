@@ -103,4 +103,12 @@ namespace Location {
     void TileUtil::render(sf::RenderWindow &window) {
         window.draw(_vertexArr, &_tileMap);
     }
+
+    sf::Vector2f TileUtil::tileFromCoordinate(int locX, int locY) {
+        sf::Vector2f temp;
+        temp.x = locX / _tilePixelWidth;
+        temp.y = locY / _tilePixelHeight;
+
+        return temp;
+    }
 }
