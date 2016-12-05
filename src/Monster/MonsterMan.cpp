@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 
 using Location::TilePoint;
 using std::cout;
@@ -9,7 +11,7 @@ using std::endl;
 
 namespace Monsters {
     MonsterMan::MonsterMan(sf::RenderWindow &window) : _window(window), _monsters() {
-        Monster::_spriteSheet.loadFromFile("Resources/Textures/MonsterSpriteSheet.png");
+		srand(time(0));
     }
 
     void MonsterMan::update() {
@@ -55,7 +57,13 @@ namespace Monsters {
     }
 
     void MonsterMan::createMonster() {
-        // For now, location and speed are set to constant values in Monster, so we just need to fix this later
-        _monsters.push_back(new Monster(0.3));
+		int random = rand() % 10;
+		if (random < 5) {
+			_monsters.push_back(new Monster(Monsters::WHITE_MONSTER));
+		} else if (random < 8) {
+			_monsters.push_back(new Monster(Monsters::BLUE_MONSTER));
+		} else {
+			_monsters.push_back(new Monster(Monsters::RED_MONSTER));
+		}
     }
 }

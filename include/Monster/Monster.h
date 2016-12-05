@@ -8,25 +8,20 @@
 using Location::TilePoint;
 
 namespace Monsters {
+	enum MonsterType {WHITE_MONSTER, BLUE_MONSTER, RED_MONSTER};
+	
     class Monster {
     public:
-        Monster(/*TilePoint initialLoc, */float speed);
+        Monster(MonsterType type);
 
         void update();
-
         void takeDamage(int damage);
-
         void kill();
-
-        AnimatedSprite &getSprite();
-
         TilePoint getLocation();
-
         int getHealth();
-
-        bool isDead();
-
-        static sf::Texture _spriteSheet;
+		bool isDead();
+		AnimatedSprite &getSprite();
+        sf::Texture _spriteSheet;
 
     private:
         float _speed;
