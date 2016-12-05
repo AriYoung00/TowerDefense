@@ -12,4 +12,8 @@ Mike Koenig on [SoundBible](http://soundbible.com/).
 Grass tile -- taken from [this blog post](http://finalbossblues.com/tiling-tiles/), by [Jason Perry](http://finalbossblues.com/)
 
 Rock texture taken from [this post](http://forums.rpgmakerweb.com/index.php?/topic/9801-restaff-february-2013-release/) 
-on the [RPG Maker forums](http://forums.rpgmakerweb.com/). As far as I can tell, the texture itself was created by user [Indrah](http://forums.rpgmakerweb.com/index.php?/profile/33-indrah/) on the same forum.
+on the [RPG Maker forums](http://forums.rpgmakerweb.com/). As far as I can tell, the texture itself was created by user 
+[Indrah](http://forums.rpgmakerweb.com/index.php?/profile/33-indrah/) on the same forum.
+
+Gravel texture taken from [this url](http://opengameart.org/sites/default/files/styles/watermarked/public/styles/medium/public/RockTile.png) 
+(could not find creator info) on [OpenGameArt.org](http://opengameart.org/)
