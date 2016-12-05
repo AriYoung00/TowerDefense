@@ -4,9 +4,17 @@ project(TowerDefense)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_BUILD_TYPE Debug)
 
-set(SOURCE_FILES src/main.cpp src/Tower/Tower.cpp include/Tower/Tower.h src/Tower/TowerMan.cpp include/Tower/TowerMan.h
-        src/Events/ButtonClickEvent.cpp include/Events/ButtonClickEvent.h src/Location/TilePoint.cpp include/Location/TilePoint.h
-        src/Monster/Monster.cpp include/Monster/Monster.h src/Monster/MonsterMan.cpp include/Monster/MonsterMan.h include/SFMLLib/Animation.hpp include/SFMLLib/Animation.cpp include/SFMLLib/AnimatedSprite.hpp include/SFMLLib/AnimatedSprite.cpp)
+set(SOURCE_FILES src/main.cpp
+	src/Tower/Tower.cpp
+	src/Tower/TowerMan.cpp
+	src/Events/ButtonClickEvent.cpp
+	src/Location/TilePoint.cpp
+	src/Monster/Monster.cpp
+	src/Monster/MonsterMan.cpp
+	include/SFMLLib/Animation.cpp
+	include/SFMLLib/AnimatedSprite.cpp
+	src/UI/UIManager.cpp
+)
 add_executable(TowerDefense ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")

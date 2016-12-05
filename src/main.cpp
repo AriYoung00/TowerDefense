@@ -7,6 +7,7 @@
 
 #include "Tower/Tower.h"
 #include "Tower/TowerMan.h"
+#include "UI/UIManager.h"
 
 
 using std::cout;
@@ -21,8 +22,9 @@ using Monsters::MonsterMan;
 
 int main () {
     sf::RenderWindow window(sf::VideoMode(640, 480, 32), "Tower Defense", sf::Style::Close);
-
-    MonsterMan monstMan(window);
+	
+	UIManager uiManager(window);
+    MonsterMan monstMan(window, uiManager);
     TowerMan towerMan(window, monstMan);
 
     window.setFramerateLimit(240);
@@ -51,6 +53,9 @@ int main () {
 
 		monstMan.update();
 		monstMan.render();
+		
+		uiManager.update();
+		uiManager.render();
 
 		window.display();
 	}
