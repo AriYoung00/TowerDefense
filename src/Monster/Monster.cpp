@@ -50,7 +50,6 @@ namespace Monsters
 
     void Monster::kill()
     {
-        cout << "KILL" << endl;
         _sprite.stop();
         _sprite.setAnimation(_deathAnimation);
         _sprite.setLooped(false);
