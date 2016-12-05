@@ -65,7 +65,6 @@ namespace Monsters
 
     int Monster::getHealth()
     {
-        cout << "Monster health: " << _health << endl;
         return _health;
     }
 
