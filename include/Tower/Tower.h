@@ -94,6 +94,8 @@ namespace Towers {
          */
         bool isFiring();
 
+        bool needsTarget();
+
         /**
          * Getter function for \p _type
          * @return The TowerType of the Tower object

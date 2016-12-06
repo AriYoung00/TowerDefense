@@ -5,7 +5,6 @@
 #include "Tower/Tower.h"
 
 #include <iostream>
-#include <cmath>
 
 using Location::TilePoint;
 
@@ -44,6 +43,7 @@ namespace Towers {
     }
 
     void Tower::update() {
+        float rotation;
 		if (_target) {
 			sf::Vector2f curPos = _sprite.getPosition();
 			sf::Vector2f position = _target->getSprite().getPosition();
@@ -53,15 +53,16 @@ namespace Towers {
 			float dx = curPos.x - position.x;
 			float dy = curPos.y - position.y;
 
-			float rotation = ((atan2(dy, dx)) * 180 / PI) - 90;
-
-			_sprite.setRotation(rotation);
+            rotation = ((atan2(dy, dx)) * 180 / PI) - 90;
 		}
+        cout << rotation << endl;
+
+        _sprite.setRotation(rotation);
     }
 
     void Tower::startFire(sf::Time fireTime) {
 		if (_target) {
-			_sprite.setRotation(90);
+            //_sprite.setRotation(90);
 			_lastFireTime = fireTime;
 			_isFiring = true;
 			_sprite.setTexture(_firingTexture);
@@ -71,6 +72,7 @@ namespace Towers {
     }
 
     void Tower::stopFire(sf::Time fireTime) {
+        _target = nullptr;
         _sprite.setRotation(0);
         _lastFireTime = fireTime;
         _isFiring = false;
@@ -123,5 +125,9 @@ namespace Towers {
 
     sf::Time &Tower::getLastFireTime() {
         return _lastFireTime;
+    }
+
+    bool Tower::needsTarget() {
+        return _target == nullptr;
     }
 }

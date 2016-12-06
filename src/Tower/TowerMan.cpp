@@ -3,10 +3,13 @@
 //
 #include "Tower/TowerMan.h"
 #include <lib/json.hpp>
+#include <Location/TileUtil.h>
 
 using std::vector;
 using std::cout;
 using std::endl;
+
+using Location::TileUtil;
 
 namespace Towers {
     TowerMan::TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan)
@@ -34,7 +37,12 @@ namespace Towers {
             else if ((currentElapsed - t.getLastFireTime()) >= _fireAnimationInterval && t.isFiring())
                 t.stopFire(currentElapsed);
 
-			t.setTarget(_monsterMan->getMonstersInRange(t.getSprite().getPosition(), 10000));
+            if (t.needsTarget() && _monsterMan->getMonsterInRange(t.getSprite().getPosition(),
+                                                                  1.5 * TileUtil::getTileDistance())) {
+                t.setTarget(_monsterMan->getMonsterInRange(t.getSprite().getPosition(),
+                                                           1.5 * TileUtil::getTileDistance()));
+                cout << "setting new target" << endl;
+            }
 
             t.update();
         }

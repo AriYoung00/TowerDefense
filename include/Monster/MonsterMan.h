@@ -18,7 +18,7 @@ namespace Monsters {
     public:
         MonsterMan(sf::RenderWindow &window, UIManager &uiManager, StateManager &stateManager);
 
-        Monster *getMonstersInRange(const sf::Vector2f &point, double range);
+		Monster *getMonsterInRange(const sf::Vector2f &point, double range);
 
         void update();
 
