@@ -6,6 +6,8 @@ from [this pinterest page](https://www.pinterest.com/pin/460633868108705545/). C
 Tower level 1 image -- taken from [this sprite sheet](https://www.spriters-resource.com/snes/frontmission/sheet/10708/), 
 which is by [Arima](https://www.spriters-resource.com/submitter/Arima/) on [The Spriter's Resource](https://www.spriters-resource.com).
 
+[Monster sprite sheet](http://opengameart.org/content/cute-monster-sprite-sheet)
+
 TowerFireSound-1 -- taken directly from [here](http://soundbible.com/1228-Machine-Gun-Burst-50-Cal.html), recorded by user 
 Mike Koenig on [SoundBible](http://soundbible.com/). 
 
@@ -21,3 +23,6 @@ Gravel texture taken from [this url](http://opengameart.org/sites/default/files/
 The monster spawn location texture is shamelessly stolen straight from the Minecraft beacon texture.
 
 Base/castle clipart thing taken from [here](http://www.clipartkid.com/castle-20clip-20art-clipart-panda-free-clipart-images-2AnofI-clipart/)
+
+Explosion sprite sheet came from [this post](http://i-am-bryan.com/webs/wp-content/uploads/2012/12/Explosion-Sprite-Sheet.png) 
+on [this blog](http://i-am-bryan.com/webs) (dead link), which appears to be defunct.
