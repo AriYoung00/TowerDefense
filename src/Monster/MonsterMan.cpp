@@ -10,7 +10,7 @@ using std::cout;
 using std::endl;
 
 namespace Monsters {
-    MonsterMan::MonsterMan(sf::RenderWindow &window, UIManager &uiManager) : _window(window), _uiManager(uiManager), _monsters() {
+    MonsterMan::MonsterMan(sf::RenderWindow &window, UIManager &uiManager, StateManager &stateManager) : _window(window), _uiManager(uiManager), _stateManager(stateManager), _monsters() {
 //		_uiManager = *uiManager;
 		srand(time(0));
     }
@@ -25,13 +25,13 @@ namespace Monsters {
             m->update();
 			if (m->getSprite().getPosition().x > 640) {
 				_monsters.erase(std::remove(_monsters.begin(), _monsters.end(), m), _monsters.end());
-				_uiManager.removeLife();
+				_stateManager.removeLife();
                 cout << "Monster count: " << _monsters.size() << endl;
             }
             else if(m->getHealth() <= 0 && !m->isDead())
             {
                 m->kill();
-				_uiManager.addPoints(1);
+				_stateManager.addScore(1);
             }
             if(m->isDead() && !m->getSprite().isPlaying())
             {

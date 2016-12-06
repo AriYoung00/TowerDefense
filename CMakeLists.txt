@@ -13,6 +13,7 @@ set(SOURCE_FILES src/main.cpp
         src/Monster/MonsterMan.cpp
         src/UI/UIManager.cpp
         src/Location/TileUtil.cpp
+				src/State/StateManager.cpp
 				include/lib/Animation.cpp
 				include/lib/AnimatedSprite.cpp
 )

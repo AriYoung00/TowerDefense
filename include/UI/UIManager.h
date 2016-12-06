@@ -4,20 +4,19 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
+#include "State/StateManager.h"
 
 class UIManager {
 public:
-	UIManager(sf::RenderWindow &window);
-	void removeLife();
-	void addPoints(int points);
+	UIManager(sf::RenderWindow &window, StateManager &stateManager);
 	void update();
 	void render();
 private:
 	sf::RenderWindow &_window;
-	int _lives = 3;
-	int _points = 0;
+	StateManager &_stateManager;
 	sf::Font _font;
 	sf::Text _lives_display;
 	sf::Text _score_display;
+	sf::Text _coins_display;
 };
 #endif

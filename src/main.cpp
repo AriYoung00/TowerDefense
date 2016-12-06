@@ -8,6 +8,7 @@
 #include "Tower/Tower.h"
 #include "Tower/TowerMan.h"
 #include "Location/TileUtil.h"
+#include "State/StateManager.h"
 
 
 using std::cout;
@@ -30,8 +31,9 @@ int main () {
     TileUtil::init(1000, 1000);
     TileUtil::loadMap("Resources/Maps/TestMap.json");
 
-    UIManager uiManager(window);
-    MonsterMan monstMan(window, uiManager);
+	StateManager *stateManager = new StateManager;
+    UIManager uiManager(window, *stateManager);
+    MonsterMan monstMan(window, uiManager, *stateManager);
     TowerMan towerMan(window, monstMan);
 
     window.setFramerateLimit(240);
