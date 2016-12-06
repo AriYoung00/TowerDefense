@@ -9,8 +9,10 @@
 using Location::TilePoint;
 
 namespace Monsters {
-	enum MonsterType {WHITE_MONSTER, BLUE_MONSTER, RED_MONSTER};
-	
+    enum MonsterType {
+        WHITE_MONSTER, BLUE_MONSTER, RED_MONSTER
+    };
+         
     class Monster {
     public:
         Monster(MonsterType type);
@@ -18,15 +20,18 @@ namespace Monsters {
         void update();
         void takeDamage(int damage);
         void kill();
+
+        void explode();
+                  
         int getHealth();
-		bool isDead();
-		AnimatedSprite &getSprite();
+
+        bool isDead();
+
+        AnimatedSprite &getSprite();
         sf::Texture _spriteSheet;
 
     private:
         void _getNextPos();
-
-        void _explode();
 
         sf::Vector2f _speed;
         unsigned int _health;

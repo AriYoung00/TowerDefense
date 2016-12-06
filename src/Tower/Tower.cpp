@@ -26,6 +26,7 @@ namespace Towers {
         _lastFireTime = sf::seconds(0);
 
         _sprite.setTexture(_normalTexture);
+        _sprite.setScale(1.3, 1.3);
         _sprite.setOrigin(15, 55);
         _sprite.setPosition(x, y);
 
@@ -55,7 +56,6 @@ namespace Towers {
 
             rotation = ((atan2(dy, dx)) * 180 / PI) - 90;
 		}
-        cout << rotation << endl;
 
         _sprite.setRotation(rotation);
     }

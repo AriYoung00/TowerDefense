@@ -42,15 +42,13 @@ namespace Monsters
 		_walkForwardsAnimation.addFrame(sf::IntRect(212, 81, 51, 51));
 		_walkForwardsAnimation.addFrame(sf::IntRect(276, 88, 51, 51));
 
-        _explodeSheet.loadFromFile("Resources/Textures/Explosion-Sprite-Sheet.png")
+        _explodeSheet.loadFromFile("Resources/Textures/Explosion-Sprite-Sheet.png");
         _explodeAnimation.setSpriteSheet(_explodeSheet);
-        _explodeAnimation.addFrame(sf::IntRect(0, 0, 115, 118));
-        _explodeAnimation.addFrame(sf::IntRect(115, 0, 230, 118));
-        _explodeAnimation.addFrame(sf::IntRect(230, 0, 345, 118));
-        _explodeAnimation.addFrame(sf::IntRect(245, 0, 345, 118));
-        _explodeAnimation.addFrame(sf::IntRect(360, 0, 465, 118));
-        _explodeAnimation.addFrame(sf::IntRect(0, 0, 115, 118));
-        _explodeAnimation.addFrame(sf::IntRect(480, 0, 589, 118));
+        _explodeAnimation.addFrame(sf::IntRect(0, 0, 50, 50));
+        _explodeAnimation.addFrame(sf::IntRect(50, 0, 100, 50));
+        _explodeAnimation.addFrame(sf::IntRect(100, 0, 150, 50));
+        _explodeAnimation.addFrame(sf::IntRect(150, 0, 200, 50));
+        _explodeAnimation.addFrame(sf::IntRect(200, 0, 250, 50));
 
 
 		_deathAnimation.setSpriteSheet(_spriteSheet);
@@ -72,12 +70,15 @@ namespace Monsters
     }
 
     void Monster::update() {
+        sf::Vector2f tileLoc = TileUtil::tileFromCoordinate(_sprite.getPosition());
         //I'll be honest here, I have no idea what this does
         sf::Time frameTime = _frameClock.restart();
-        //Only one axis of movement for now
-		if (!_isDead) {
+        _sprite.update(frameTime);
+
+        if (!_isDead) {
             _sprite.move(_speed);
 		}
+
 
         if (_sprite.getPosition().x < _targetPos.x)
             _speed.x = _speedBase;
@@ -90,17 +91,13 @@ namespace Monsters
             _speed.y = _speedBase;
         else if (_sprite.getPosition().y > _targetPos.y)
             _speed.y = 0 - _speedBase;
-        if (fabs(_sprite.getPosition().y - _targetPos.y) < _speedBase || _sprite.getPosition().y == _targetPos.y)
+        if ((fabs(_sprite.getPosition().y - _targetPos.y) < _speedBase || _sprite.getPosition().y == _targetPos.y))
             _speed.y = 0;
 
-        if (_speed.x == 0 && _speed.y == 0)
+        if ((_speed.x == 0 && _speed.y == 0) && !_isDead) {
             _getNextPos();
+        }
 
-        if (_sprite.getPosition().x > TileUtil::getBaseLocation().x &&
-            _sprite.getPosition().y > TileUtil::getBaseLocation().y)
-            _explode();
-
-        _sprite.update(frameTime);
     }
 
     void Monster::takeDamage(int damage) {
@@ -112,7 +109,7 @@ namespace Monsters
         _sprite.stop();
         _sprite.setAnimation(_deathAnimation);
         _sprite.setLooped(false);
-        _sprite.play();
+        _sprite.play(_deathAnimation);
         _isDead = true;
     }
 
@@ -135,11 +132,12 @@ namespace Monsters
         _movementIndex++;
     }
 
-    void Monster::_explode() {
+    void Monster::explode() {
+        _sprite.setOrigin(25, 25);
         _sprite.stop();
         _sprite.setAnimation(_explodeAnimation);
         _sprite.setLooped(false);
-        _sprite.play();
+        _sprite.play(_explodeAnimation);
         _isDead = true;
     }
 }

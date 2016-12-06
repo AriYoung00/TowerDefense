@@ -19,6 +19,7 @@ namespace Location {
     sf::VertexArray TileUtil::_vertexArr;
     string TileUtil::_mapName;
     sf::Texture TileUtil::_tileMap;
+    std::vector<std::vector<bool>> TileUtil::_tilesOccupied;
 
     void TileUtil::init(int screenWidth, int screenHeight) {
         _pixelWidth = screenWidth;
@@ -32,7 +33,8 @@ namespace Location {
         json map;
         inFile >> map;
         // This json library uses vectors for arrays
-        std::vector<std::vector<int>> tileList = map["tileList"];
+        std::vector<std::vector<int>> tileTypes = map["tileList"];
+
 
         _spawnLocation.x = map["monsterSpawnLocation"][0];
         _spawnLocation.y = map["monsterSpawnLocation"][1];
@@ -64,7 +66,7 @@ namespace Location {
                 int baseY = row * _tilePixelWidth;
                 int textureCornerX;
 
-                switch (tileList[row][column]) {
+                switch (tileTypes[row][column]) {
                     case 1:
                         textureCornerX = 0;
                         break;
@@ -102,18 +104,34 @@ namespace Location {
                 }
             }
         }
+
+        _tilesOccupied = std::vector<std::vector<bool>>(_tileHeight);
+        for (int i = 0; i < _tileHeight; i++) {
+            _tilesOccupied[i] = std::vector<bool>(_tileHeight);
+            for (int j = 0; j < _tileWidth; j++) {
+                if (tileTypes[i][j] > 1)
+                    _tilesOccupied[i][j] = true;
+                else
+                    _tilesOccupied[i][j] = false;
+            }
+        }
     }
 
     void TileUtil::render(sf::RenderWindow &window) {
         window.draw(_vertexArr, &_tileMap);
     }
 
-    sf::Vector2f TileUtil::tileFromCoordinate(float locX, float locY) {
+    sf::Vector2f TileUtil::tileFromCoordinate(float locX,
+                                              float locY) { // Should probably be vector2i, but this lets me pass it without converting
         sf::Vector2f temp;
-        temp.x = (locX / _tilePixelWidth);
-        temp.y = (locY / _tilePixelHeight);
+        temp.x = locX / _tilePixelWidth;
+        temp.y = locY / _tilePixelHeight;
 
         return temp;
+    }
+
+    sf::Vector2f TileUtil::tileFromCoordinate(const sf::Vector2f &coord) {
+        return tileFromCoordinate(coord.x, coord.y);
     }
 
 
@@ -126,7 +144,7 @@ namespace Location {
         return temp;
     }
 
-    sf::Vector2f TileUtil::coordinateFromTile(sf::Vector2f tile) {
+    sf::Vector2f TileUtil::coordinateFromTile(const sf::Vector2f &tile) {
         return coordinateFromTile(tile.x, tile.y);
     }
 
@@ -141,5 +159,17 @@ namespace Location {
 
     sf::Vector2f TileUtil::getBaseLocation() {
         return _baseLocation;
+    }
+
+    double TileUtil::getTileDistance() {
+        return sqrt(2) * _tilePixelWidth;
+    }
+
+    bool TileUtil::tileIsOccupied(sf::Vector2f tileCoord) {
+        return _tilesOccupied[tileCoord.y][tileCoord.x];
+    }
+
+    void TileUtil::setOccupied(int x, int y, bool occupied) {
+        _tilesOccupied[y][x] = occupied;
     }
 }

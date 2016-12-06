@@ -6,21 +6,21 @@ UIManager::UIManager(sf::RenderWindow &window, StateManager &stateManager) : _wi
 	// Lives
 	_lives_display.setString("Lives: 3/3");
 	_lives_display.setFont(_font);
-	_lives_display.setFillColor(sf::Color::White);
+    _lives_display.setColor(sf::Color::White);
 	_lives_display.setCharacterSize(30);
 	_lives_display.setPosition(_window.getSize().x - 150, 5);
 	
 	// Score
 	_score_display.setString("Score: 0");
 	_score_display.setFont(_font);
-	_score_display.setFillColor(sf::Color::White);
+    _score_display.setColor(sf::Color::White);
 	_score_display.setCharacterSize(30);
 	_score_display.setPosition(_window.getSize().x - 300, 5);
 	
 	// Coins
 	_coins_display.setString("Coins: 0");
 	_coins_display.setFont(_font);
-	_coins_display.setFillColor(sf::Color::White);
+    _coins_display.setColor(sf::Color::White);
 	_coins_display.setCharacterSize(30);
 	_coins_display.setPosition(_window.getSize().x - 450, 5);
 }

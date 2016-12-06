@@ -22,6 +22,19 @@ using Monsters::MonsterMan;
 using Location::TileUtil;
 
 
+void handleClick(int posX, int posY, TowerMan &towerMan) {
+    sf::Vector2f clickTile = TileUtil::tileFromCoordinate(posX, posY);
+    if (!TileUtil::tileIsOccupied(clickTile)) {
+        // I know that this is a pretty awful hack
+        // I'm tired.
+        clickTile.x = (int) (clickTile.x + 1); //+ 0.5);
+        clickTile.y = (int) (clickTile.y + 1); //+ 0.5);
+
+        cout << "tile coords " << clickTile.x << " " << clickTile.y << endl;
+        towerMan.createTower(TowerType::SHORT_RANGE, clickTile);
+    }
+}
+
 int main () {
     // Breaks on 4:3, large screen sizes, but is an acceptable scaling solution for now
     double scale = sf::VideoMode::getDesktopMode().height / 1080;
@@ -46,16 +59,15 @@ int main () {
     while (window.isOpen()) {
         sf::Event event;
         while(window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            } else if (event.type == sf::Event::MouseButtonReleased) {
-				if (stateManager->removeCoins(100)) {
-					towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
-                                     sf::Mouse::getPosition(window).y);
-				} else {
-					cout << "Insufficient funds" << endl;
-					// This should be an onscreen/audio error
-				}
+            switch (event.type) {
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+                case sf::Event::MouseButtonReleased:
+                    handleClick(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y, towerMan);
+                    break;
+                default:
+                    break;
             }
 		}
 
@@ -73,6 +85,8 @@ int main () {
 
 		window.display();
 	}
+
+    delete stateManager;
 
     return 0;
 }

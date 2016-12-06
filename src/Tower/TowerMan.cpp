@@ -72,8 +72,10 @@ namespace Towers {
         //TODO: Implement onButtonClick
     }
 
-    void TowerMan::createTower(TowerType type, float x, float y) {
-        Tower t(type, x, y);
+    void TowerMan::createTower(TowerType type, sf::Vector2f pos) {
+        TileUtil::setOccupied(pos.x, pos.y, true); // Intentional type mismatch
+
+        Tower t(type, TileUtil::coordinateFromTile(pos).x, TileUtil::coordinateFromTile(pos).y);
         _towers.push_back(t);
     }
 }

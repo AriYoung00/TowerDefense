@@ -13,17 +13,23 @@ namespace Location {
 
         static sf::Vector2f tileFromCoordinate(float locX, float locY);
 
-        static sf::Vector2f tileFromCoordinate(sf::Vector2f &coord);
+        static sf::Vector2f tileFromCoordinate(const sf::Vector2f &coord);
 
         static sf::Vector2f coordinateFromTile(float x, float y);
 
-        static sf::Vector2f coordinateFromTile(sf::Vector2f tile);
+        static sf::Vector2f coordinateFromTile(const sf::Vector2f &tile);
 
         static sf::Vector2f getTargetPos(int posIndex);
 
         static sf::Vector2f getSpawnLocation();
 
         static sf::Vector2f getBaseLocation();
+
+        static double getTileDistance();
+
+        static bool tileIsOccupied(sf::Vector2f tileCoord);
+
+        static void setOccupied(int x, int y, bool occupied);
 
 
     private:
@@ -40,5 +46,6 @@ namespace Location {
         static sf::VertexArray _vertexArr;
         static sf::Texture _tileMap;
         static json _monsterDirections;
+        static std::vector<std::vector<bool>> _tilesOccupied;
     };
 }

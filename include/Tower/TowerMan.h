@@ -44,7 +44,7 @@ namespace Towers {
         void onButtonClick(ButtonClickEvent event);
 
         ///Temporary method
-        void createTower(TowerType type, float x, float y);
+        void createTower(TowerType type, sf::Vector2f pos);
 
         /**
          * Get the tower at a particular tile-coordinate location.

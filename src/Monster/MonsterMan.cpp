@@ -33,6 +33,8 @@ namespace Monsters {
             if (TileUtil::tileFromCoordinate(m->getSprite().getPosition()).x > TileUtil::getBaseLocation().x - 0.8 &&
                 !m->isDead()) {
                 m->explode();
+
+                _stateManager.removeLife();
                 cout << "exploding" << endl;
             }
             if(m->isDead() && !m->getSprite().isPlaying())
