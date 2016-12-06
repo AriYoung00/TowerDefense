@@ -13,9 +13,12 @@ set(SOURCE_FILES src/main.cpp
         src/Monster/MonsterMan.cpp
         src/UI/UIManager.cpp
         src/Location/TileUtil.cpp
-				src/State/StateManager.cpp
-				include/lib/Animation.cpp
-				include/lib/AnimatedSprite.cpp
+        src/State/StateManager.cpp
+
+        include
+        # For some reason it needed these two explicitly
+        include/lib/AnimatedSprite.cpp
+        include/lib/Animation.cpp
 )
 add_executable(TowerDefense ${SOURCE_FILES})
 
