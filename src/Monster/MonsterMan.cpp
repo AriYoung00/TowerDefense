@@ -32,6 +32,7 @@ namespace Monsters {
             {
                 m->kill();
 				_stateManager.addScore(1);
+				_stateManager.addCoins(25);
             }
             if(m->isDead() && !m->getSprite().isPlaying())
             {

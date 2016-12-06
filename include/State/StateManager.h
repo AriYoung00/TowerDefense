@@ -6,6 +6,7 @@ public:
 	StateManager();
 	void removeLife();
 	void addScore(int number);
+	void addCoins(int number);
 	bool removeCoins(int number);
 	int getLives();
 	int getScore();

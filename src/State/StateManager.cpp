@@ -3,7 +3,7 @@
 StateManager::StateManager() {
 	_lives = 3;
 	_score = 0;
-	_coins = 0;
+	_coins = 200;
 }
 
 void StateManager::removeLife() {
@@ -14,8 +14,12 @@ void StateManager::addScore(int number) {
 	_score += number;
 }
 
+void StateManager::addCoins(int number) {
+	_coins += number;
+}
+
 bool StateManager::removeCoins(int number) {
-	if (number > _coins) {
+	if (_coins >= number) {
 		_coins -= number;
 		return true;
 	} else {

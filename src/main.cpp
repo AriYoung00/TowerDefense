@@ -49,8 +49,13 @@ int main () {
             if (event.type == sf::Event::Closed) {
                 window.close();
             } else if (event.type == sf::Event::MouseButtonReleased) {
-                towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
+				if (stateManager->removeCoins(100)) {
+					towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
                                      sf::Mouse::getPosition(window).y);
+				} else {
+					cout << "Insufficient funds" << endl;
+					// This should be an onscreen/audio error
+				}
             }
 		}
 
