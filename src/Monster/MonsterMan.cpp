@@ -11,12 +11,14 @@ using std::endl;
 
 namespace Monsters {
     MonsterMan::MonsterMan(sf::RenderWindow &window, UIManager &uiManager, StateManager &stateManager) : _window(window), _uiManager(uiManager), _stateManager(stateManager), _monsters() {
-//		_uiManager = *uiManager;
-		srand(time(0));
+		_time_to_next_spawn = 3.0;
+		_difficulty_curve = 1;
+		srand(4); // Chosen by fair dice roll, guaranteed to be random
     }
 
     void MonsterMan::update() {
-        if (_spawnClock.getElapsedTime().asSeconds() >= 3) {
+        if (_spawnClock.getElapsedTime().asSeconds() >= _time_to_next_spawn) {
+			_time_to_next_spawn -= 0.01;
             _spawnClock.restart();
             createMonster();
         }
@@ -61,13 +63,17 @@ namespace Monsters {
     }
 
     void MonsterMan::createMonster() {
-		int random = rand() % 10;
-		if (random < 5) {
+		int random = rand() % _difficulty_curve;
+		if (random < 7) {
 			_monsters.push_back(new Monster(Monsters::WHITE_MONSTER));
-		} else if (random < 8) {
+		} else if (random < 12) {
 			_monsters.push_back(new Monster(Monsters::BLUE_MONSTER));
 		} else {
 			_monsters.push_back(new Monster(Monsters::RED_MONSTER));
+		}
+		
+		if (_difficulty_curve < 15) {
+			_difficulty_curve++;
 		}
     }
 }

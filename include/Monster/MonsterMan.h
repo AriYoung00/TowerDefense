@@ -33,6 +33,8 @@ namespace Monsters {
         sf::RenderWindow &_window;
 		UIManager &_uiManager;
 		StateManager &_stateManager;
+		float _time_to_next_spawn;
+		int _difficulty_curve;
     };
 }
 
