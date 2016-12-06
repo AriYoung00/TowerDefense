@@ -1,7 +1,6 @@
 #include <fstream>
 
 #include "Location/TileUtil.h"
-#include "lib/json.hpp"
 
 using std::cout;
 using std::endl;
@@ -14,6 +13,9 @@ namespace Location {
     int TileUtil::_tileHeight;
     int TileUtil::_tilePixelWidth;
     int TileUtil::_tilePixelHeight;
+    sf::Vector2f TileUtil::_baseLocation;
+    sf::Vector2f TileUtil::_spawnLocation;
+    json TileUtil::_monsterDirections;
     sf::VertexArray TileUtil::_vertexArr;
     string TileUtil::_mapName;
     sf::Texture TileUtil::_tileMap;
@@ -32,9 +34,16 @@ namespace Location {
         // This json library uses vectors for arrays
         std::vector<std::vector<int>> tileList = map["tileList"];
 
+        _spawnLocation.x = map["monsterSpawnLocation"][0];
+        _spawnLocation.y = map["monsterSpawnLocation"][1];
+        _baseLocation.x = map["baseLocation"][0];
+        _baseLocation.y = map["baseLocation"][1];
+
         _mapName = map["name"];
         _tileWidth = map["tileWidth"];
         _tileHeight = map["tileHeight"];
+        _monsterDirections = map["monsterDirections"];
+//        cout << map["monsterDirections"][0][0]
 
         // Computing the pixel dimensions of each tile
         _pixelWidth -= _pixelWidth % _tileWidth;
@@ -46,7 +55,6 @@ namespace Location {
         // Loosely based on http://www.sfml-dev.org/tutorials/2.0/graphics-vertex-array.php#example-tile-map
         _vertexArr.setPrimitiveType(sf::Quads);
         _vertexArr.resize(_tileWidth * _tileHeight * 4);
-        cout << "fuck you sfml " << _tileWidth << endl;
 
         for (unsigned int row = 0; row < _tileHeight; row++) {
             // 4 actual indexes per tile
@@ -88,27 +96,50 @@ namespace Location {
                     int textureOffsetX = (corner == 1) || (corner == 2) ? 64 : 0;
                     int textureY = (corner == 2) || (corner == 3) ? 64 : 0;
 
-                    cout << ", (" << textureCornerX + textureOffsetX << ", " << textureY << ")";
                     _vertexArr[vertexArrInd + corner].texCoords = sf::Vector2f(textureCornerX + textureOffsetX,
                                                                                textureY);
                     //_vertexArr[vertexArrInd + corner].color = sf::Color::Green;
                 }
-
-                cout << endl;
             }
         }
-
     }
 
     void TileUtil::render(sf::RenderWindow &window) {
         window.draw(_vertexArr, &_tileMap);
     }
 
-    sf::Vector2f TileUtil::tileFromCoordinate(int locX, int locY) {
+    sf::Vector2f TileUtil::tileFromCoordinate(float locX, float locY) {
         sf::Vector2f temp;
-        temp.x = locX / _tilePixelWidth;
-        temp.y = locY / _tilePixelHeight;
+        temp.x = (locX / _tilePixelWidth);
+        temp.y = (locY / _tilePixelHeight);
 
         return temp;
+    }
+
+
+    sf::Vector2f TileUtil::coordinateFromTile(float x, float y) {
+        sf::Vector2f temp;
+        // Because we need to get the center of the tile, not the top left edge, as is default
+        temp.x = (((x - 1) * _tilePixelWidth) + (_tilePixelWidth / 2));
+        temp.y = (((y - 1) * _tilePixelHeight) + (_tilePixelHeight / 2));
+
+        return temp;
+    }
+
+    sf::Vector2f TileUtil::coordinateFromTile(sf::Vector2f tile) {
+        return coordinateFromTile(tile.x, tile.y);
+    }
+
+    sf::Vector2f TileUtil::getTargetPos(int posIndex) {
+        sf::Vector2f temp(_monsterDirections[posIndex][0], _monsterDirections[posIndex][1]);
+        return coordinateFromTile(temp);
+    }
+
+    sf::Vector2f TileUtil::getSpawnLocation() {
+        return coordinateFromTile(_spawnLocation);
+    }
+
+    sf::Vector2f TileUtil::getBaseLocation() {
+        return _baseLocation;
     }
 }

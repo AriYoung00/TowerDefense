@@ -18,25 +18,30 @@ namespace Monsters {
         void update();
         void takeDamage(int damage);
         void kill();
-        TilePoint getLocation();
         int getHealth();
 		bool isDead();
 		AnimatedSprite &getSprite();
         sf::Texture _spriteSheet;
 
     private:
+        void _getNextPos();
 
+        void _explode();
 
-        float _speed;
+        sf::Vector2f _speed;
         unsigned int _health;
+        int _movementIndex;
+        float _speedBase;
         bool _isDead = false;
-        //TilePoint _location;
 
 
         //only animation for now
         sf::Clock _frameClock;
+        sf::Vector2f _targetPos;
+        sf::Texture _explodeSheet;
         Animation _walkForwardsAnimation;
         Animation _deathAnimation;
+        Animation _explodeAnimation;
         AnimatedSprite _sprite;
 
     };
