@@ -8,7 +8,6 @@
 #include "Tower/Tower.h"
 #include "Tower/TowerMan.h"
 #include "Location/TileUtil.h"
-#include "State/StateManager.h"
 
 
 using std::cout;
@@ -35,6 +34,7 @@ int main () {
     UIManager uiManager(window, *stateManager);
     MonsterMan monstMan(window, uiManager, *stateManager);
     TowerMan towerMan(window, monstMan);
+    monstMan.createMonster();
 
     window.setFramerateLimit(240);
     sf::SoundBuffer fireSound;
@@ -59,7 +59,6 @@ int main () {
             }
 		}
 
-		window.clear(sf::Color::Black);
 
         TileUtil::render(window);
 
