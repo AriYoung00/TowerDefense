@@ -9,13 +9,14 @@
 #include <vector>
 #include "UI/UIManager.h"
 #include "Monster/Monster.h"
+#include "State/StateManager.h"
 
 using std::vector;
 
 namespace Monsters {
     class MonsterMan {
     public:
-        MonsterMan(sf::RenderWindow &window, UIManager &uiManager);
+        MonsterMan(sf::RenderWindow &window, UIManager &uiManager, StateManager &stateManager);
 
         Monster *getMonstersInRange(const sf::Vector2f &point, double range);
 
@@ -31,6 +32,7 @@ namespace Monsters {
         sf::Clock _spawnClock;
         sf::RenderWindow &_window;
 		UIManager &_uiManager;
+		StateManager &_stateManager;
     };
 }
 

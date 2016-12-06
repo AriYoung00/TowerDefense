@@ -8,6 +8,7 @@
 #include "Tower/Tower.h"
 #include "Tower/TowerMan.h"
 #include "Location/TileUtil.h"
+#include "State/StateManager.h"
 
 
 using std::cout;
@@ -30,8 +31,9 @@ int main () {
     TileUtil::init(1000, 1000);
     TileUtil::loadMap("Resources/Maps/TestMap.json");
 
-    UIManager uiManager(window);
-    MonsterMan monstMan(window, uiManager);
+	StateManager *stateManager = new StateManager;
+    UIManager uiManager(window, *stateManager);
+    MonsterMan monstMan(window, uiManager, *stateManager);
     TowerMan towerMan(window, monstMan);
 
     window.setFramerateLimit(240);
@@ -47,8 +49,13 @@ int main () {
             if (event.type == sf::Event::Closed) {
                 window.close();
             } else if (event.type == sf::Event::MouseButtonReleased) {
-                towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
+				if (stateManager->removeCoins(100)) {
+					towerMan.createTower(TowerType::SHORT_RANGE, sf::Mouse::getPosition(window).x,
                                      sf::Mouse::getPosition(window).y);
+				} else {
+					cout << "Insufficient funds" << endl;
+					// This should be an onscreen/audio error
+				}
             }
 		}
 
