@@ -2,7 +2,7 @@
 // Created by ariel on 11/6/16.
 //
 #include "Tower/TowerMan.h"
-#include <iostream>
+#include <lib/json.hpp>
 
 using std::vector;
 using std::cout;
