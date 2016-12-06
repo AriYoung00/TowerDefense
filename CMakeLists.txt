@@ -13,8 +13,8 @@ set(SOURCE_FILES src/main.cpp
         src/Monster/MonsterMan.cpp
         src/UI/UIManager.cpp
         src/Location/TileUtil.cpp
-
-        include
+				include/lib/Animation.cpp
+				include/lib/AnimatedSprite.cpp
 )
 add_executable(TowerDefense ${SOURCE_FILES})
 
