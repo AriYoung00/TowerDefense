@@ -24,13 +24,10 @@ using Location::TileUtil;
 
 void handleClick(int posX, int posY, TowerMan &towerMan) {
     sf::Vector2f clickTile = TileUtil::tileFromCoordinate(posX, posY);
-    if (!TileUtil::tileIsOccupied(clickTile)) {
-        // I know that this is a pretty awful hack
-        // I'm tired.
-        clickTile.x = (int) (clickTile.x + 1); //+ 0.5);
-        clickTile.y = (int) (clickTile.y + 1); //+ 0.5);
+    clickTile.x = (int) (clickTile.x + 1); //+ 0.5);
+    clickTile.y = (int) (clickTile.y + 1);
 
-        cout << "tile coords " << clickTile.x << " " << clickTile.y << endl;
+    if (!TileUtil::tileIsOccupied(clickTile)) {
         towerMan.createTower(TowerType::SHORT_RANGE, clickTile);
     }
 }
@@ -46,7 +43,7 @@ int main () {
 	StateManager *stateManager = new StateManager;
     UIManager uiManager(window, *stateManager);
     MonsterMan monstMan(window, uiManager, *stateManager);
-    TowerMan towerMan(window, monstMan);
+    TowerMan towerMan(window, monstMan, *stateManager);
     monstMan.createMonster();
 
     window.setFramerateLimit(240);
@@ -86,6 +83,8 @@ int main () {
 		window.display();
 	}
 
+
+    monstMan.cleanUpMonsters();
     delete stateManager;
 
     return 0;
