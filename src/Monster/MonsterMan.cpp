@@ -40,6 +40,7 @@ namespace Monsters {
             if(m->isDead() && !m->getSprite().isPlaying())
             {
                 cout << "erasing monster" << endl;
+                delete m;
                 _monsters.erase(std::remove(_monsters.begin(), _monsters.end(), m), _monsters.end());
             }
         }
@@ -48,6 +49,7 @@ namespace Monsters {
     void MonsterMan::render() {
         for (auto &m : _monsters) {
             _window.draw(m->getSprite());
+            _window.draw(m->getHealthBar());
         }
     }
 
@@ -77,5 +79,10 @@ namespace Monsters {
         if (_difficulty_curve < 15) {
             _difficulty_curve++;
         }
+    }
+
+    void MonsterMan::cleanUpMonsters() {
+        for (Monster* m : _monsters)
+            delete m;
     }
 }

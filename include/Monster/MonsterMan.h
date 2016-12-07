@@ -26,6 +26,8 @@ namespace Monsters {
 
         void createMonster();
 
+		void cleanUpMonsters();
+
     private:
         vector<Monster *> _monsters;
 
