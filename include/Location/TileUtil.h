@@ -29,7 +29,7 @@ namespace Location {
 
         static bool tileIsOccupied(sf::Vector2f tileCoord);
 
-        static void setOccupied(int x, int y, bool occupied);
+        static void setOccupied(int x, int y);
 
 
     private:

@@ -22,7 +22,7 @@ namespace Towers {
         /**
          * Constructor for the TowerMan class. Initializes _towers.
          */
-        TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan);
+        TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan, StateManager &stateManager);
 
         /**
          * Update method for TowerMan class. Performs Tower-based logic, calls Tower::update() in all of the
@@ -61,6 +61,7 @@ namespace Towers {
          */
         vector<Tower> _towers;
 
+        StateManager &_stateMan;
         sf::RenderWindow &_window;
         sf::Clock _fireClock;
         sf::Time _fireInterval;

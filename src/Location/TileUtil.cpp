@@ -45,7 +45,6 @@ namespace Location {
         _tileWidth = map["tileWidth"];
         _tileHeight = map["tileHeight"];
         _monsterDirections = map["monsterDirections"];
-//        cout << map["monsterDirections"][0][0]
 
         // Computing the pixel dimensions of each tile
         _pixelWidth -= _pixelWidth % _tileWidth;
@@ -109,12 +108,11 @@ namespace Location {
         for (int i = 0; i < _tileHeight; i++) {
             _tilesOccupied[i] = std::vector<bool>(_tileHeight);
             for (int j = 0; j < _tileWidth; j++) {
-                if (tileTypes[i][j] > 1)
-                    _tilesOccupied[i][j] = true;
-                else
-                    _tilesOccupied[i][j] = false;
+                _tilesOccupied[i][j] = tileTypes[i][j] > 1;
             }
         }
+
+        cout << "loading default tile occupation values" << endl;
     }
 
     void TileUtil::render(sf::RenderWindow &window) {
@@ -166,10 +164,10 @@ namespace Location {
     }
 
     bool TileUtil::tileIsOccupied(sf::Vector2f tileCoord) {
-        return _tilesOccupied[tileCoord.y][tileCoord.x];
+        return _tilesOccupied[tileCoord.y - 1][tileCoord.x - 1];
     }
 
-    void TileUtil::setOccupied(int x, int y, bool occupied) {
-        _tilesOccupied[y][x] = occupied;
+    void TileUtil::setOccupied(int x, int y) {
+        _tilesOccupied[y - 1][x - 1] = true;
     }
 }

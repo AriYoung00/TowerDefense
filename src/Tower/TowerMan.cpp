@@ -12,9 +12,10 @@ using std::endl;
 using Location::TileUtil;
 
 namespace Towers {
-    TowerMan::TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan)
+    TowerMan::TowerMan(sf::RenderWindow &window, MonsterMan &monsterMan, StateManager &stateManager)
             : _towers(), _window(window),
-              _monsterMan(&monsterMan) {
+              _monsterMan(&monsterMan),
+              _stateMan(stateManager) {
         _fireInterval = sf::seconds(0.7f);
         _fireAnimationInterval = sf::seconds(0.05f);
 
@@ -41,7 +42,6 @@ namespace Towers {
                                                                   1.5 * TileUtil::getTileDistance())) {
                 t.setTarget(_monsterMan->getMonsterInRange(t.getSprite().getPosition(),
                                                            1.5 * TileUtil::getTileDistance()));
-                cout << "setting new target" << endl;
             }
 
             t.update();
@@ -73,9 +73,12 @@ namespace Towers {
     }
 
     void TowerMan::createTower(TowerType type, sf::Vector2f pos) {
-        TileUtil::setOccupied(pos.x, pos.y, true); // Intentional type mismatch
-
-        Tower t(type, TileUtil::coordinateFromTile(pos).x, TileUtil::coordinateFromTile(pos).y);
-        _towers.push_back(t);
+        if (_stateMan.getCoins() >= 100) {
+            _stateMan.removeCoins(100);
+            TileUtil::setOccupied(pos.x, pos.y); // Intentional type mismatch
+            cout << "setting " << pos.x << " " << pos.y << " to occupied" << endl;
+            Tower t(type, TileUtil::coordinateFromTile(pos).x, TileUtil::coordinateFromTile(pos).y);
+            _towers.push_back(t);
+        }
     }
 }
