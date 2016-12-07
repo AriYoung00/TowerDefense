@@ -27,6 +27,8 @@ namespace Monsters {
 
         bool isDead();
 
+        sf::RectangleShape &getHealthBar();
+
         AnimatedSprite &getSprite();
         sf::Texture _spriteSheet;
 
@@ -34,7 +36,11 @@ namespace Monsters {
         void _getNextPos();
 
         sf::Vector2f _speed;
+        sf::Vector2f _healthBarPos;
+        sf::Vector2f _healthBarSize;
+        sf::RectangleShape _healthBar;
         unsigned int _health;
+        unsigned int _originalHealth; // another hack
         int _movementIndex;
         float _speedBase;
         bool _isDead = false;

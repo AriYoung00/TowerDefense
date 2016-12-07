@@ -65,6 +65,13 @@ namespace Monsters
         _sprite.setAnimation(_walkForwardsAnimation);
         _sprite.setPosition(TileUtil::getSpawnLocation());
 
+        _healthBarSize = sf::Vector2f{50, 4};
+        _healthBar.setSize(_healthBarSize);
+        _healthBar.setFillColor(sf::Color::Green);
+        _healthBar.setOutlineThickness(1);
+        _healthBar.setOutlineColor(sf::Color::Black);
+        _healthBar.setPosition(_sprite.getPosition() - sf::Vector2f{15, 9000});
+
         _movementIndex = 0;
         _getNextPos();
     }
@@ -77,6 +84,7 @@ namespace Monsters
 
         if (!_isDead) {
             _sprite.move(_speed);
+            _healthBar.move(_speed);
 		}
 
 
@@ -139,5 +147,9 @@ namespace Monsters
         _sprite.setLooped(false);
         _sprite.play(_explodeAnimation);
         _isDead = true;
+    }
+
+    sf::RectangleShape &Monster::getHealthBar() {
+        return _healthBar;
     }
 }
